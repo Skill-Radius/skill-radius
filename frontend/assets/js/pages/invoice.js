@@ -6,6 +6,7 @@
   const { $, esc, icon, inr } = SR;
   const user = SR.auth.user();
   const o = SR.orders().find(x => x.id === SR.hashId());
+  if (!o && !SR.hashId()) { location.replace("dashboard.html#orders"); return; }
   if (!o) { $("#main").innerHTML = `<div class="wrap narrow"><div class="empty">${icon("file")}<h3>Invoice not found</h3><p>We couldn't find order “${esc(SR.hashId())}” in your account.</p><a class="btn" href="dashboard.html#orders">Back to orders</a></div></div>`; return; }
   const g = SR.gstSplit(o.total, o.state);
   const money = (n) => "₹" + Number(n).toLocaleString("en-IN", { minimumFractionDigits: 2, maximumFractionDigits: 2 });

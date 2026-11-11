@@ -655,7 +655,10 @@ p .link, span .link, label .link { display: inline; }
 .feature h3 { font-size: 19px; font-weight: 600; }
 .feature p { color: var(--ink-2); font-size: 15px; }
 .logo-row { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 14px 40px; }
-.logo-row li { font-size: 21px; font-weight: 700; color: #a6abbb; letter-spacing: .02em; }
+.logo-row { align-items: center; }
+.logo-row li { font-size: 21px; font-weight: 700; color: #8b91a5; letter-spacing: .02em; display: flex; align-items: center; height: 36px; }
+.logo-row li.im img { display: block; height: auto; max-height: 30px; width: auto; filter: grayscale(1); opacity: .62; transition: filter .25s, opacity .25s; }
+.logo-row li.im:hover img { filter: none; opacity: 1; }
 
 /* Steps & stories (shared copies of the home styles) */
 .steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; position: relative; counter-reset: st; }

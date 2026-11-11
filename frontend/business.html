@@ -117,7 +117,7 @@
 (function () {
   const { $, icon, esc } = SR;
   $("#checks").innerHTML = ["Custom programs", "Live trainers", "Verified certifications"].map(t => `<span>${icon("checkc")}${t}</span>`).join("");
-  $("#logos").innerHTML = SR.partners.map(p => `<li>${esc(p)}</li>`).join("");
+  $("#logos").innerHTML = SR.partners.map(p => { const f = { IBM: ["ibm", 67, 27], amazon: ["amazon", 109, 33], TARGET: ["target", 145, 31], SAMSUNG: ["samsung", 164, 25], ATLASSIAN: ["atlassian", 179, 21] }[p]; return f ? `<li class="im"><img src="assets/img/brand-${f[0]}.svg" alt="${esc(p)}" width="${f[1]}" height="${f[2]}" loading="lazy"></li>` : `<li>${esc(p)}</li>`; }).join("");
   $("#solutions").innerHTML = [
     ["trend", "Custom learning paths", "Courses, live cohorts and certifications sequenced around your stack and roles."],
     ["training", "Live cohort training", "Trainer-led batches online or on-site, scheduled around your team's hours."],
