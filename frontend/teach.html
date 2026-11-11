@@ -35,6 +35,27 @@
       </div>
     </div>
   </section>
+  <section class="band section">
+    <div class="wrap"><div class="sec-head"><span class="eyebrow">Working together</span><h2>You teach. We handle the rest.</h2></div>
+      <div class="grid-2 tw">
+        <div class="card"><h3>What you do</h3><ul class="check-list">
+          <li><span data-i="check"></span>Design the syllabus with our academics team</li>
+          <li><span data-i="check"></span>Teach live sessions or record lessons</li>
+          <li><span data-i="check"></span>Review assignments and capstone projects</li>
+          <li><span data-i="check"></span>Answer learner questions in the Q&amp;A</li></ul></div>
+        <div class="card tw-us"><h3>What SkillRadius does</h3><ul class="check-list">
+          <li><span data-i="check"></span>Recording, editing and course production</li>
+          <li><span data-i="check"></span>Marketing, enrolments and learner support</li>
+          <li><span data-i="check"></span>Payments, invoices and refunds</li>
+          <li><span data-i="check"></span>A trainer panel for attendance, grading and your schedule</li></ul></div>
+      </div>
+      <div class="grid-3" style="margin-top:20px">
+        <div class="feature"><span class="ic" data-i="training"></span><h3>Live batches</h3><p>Teach a fixed-schedule batch online or in our Bengaluru studio. Online batches have up to 40 learners.</p></div>
+        <div class="feature"><span class="ic" data-i="play"></span><h3>Self-paced courses</h3><p>Record once with our production team. Learners take the course any time and you answer questions.</p></div>
+        <div class="feature"><span class="ic" data-i="users"></span><h3>Mentoring and reviews</h3><p>Short on time? Review projects, run mock interviews or host a free webinar.</p></div>
+      </div>
+    </div>
+  </section>
   <section class="band section" id="apply">
     <div class="wrap split" style="align-items:start">
       <div><span class="eyebrow">What we look for</span><h2 style="font-size:clamp(26px,3.4vw,34px);font-weight:600;margin:10px 0 14px">Practitioners who love explaining things</h2>
@@ -67,10 +88,11 @@
   const { $, icon } = SR;
   $("#why").innerHTML = [["card", "Earn well", "Revenue share on courses and a fixed fee per live batch, paid monthly."], ["video", "Studio & production", "Recording support, editing and course design help at no cost."], ["users", "Ready audience", "50,000+ learners and a marketing team filling your batches."]].map(([i, t, d]) => `<div class="feature"><span class="ic">${icon(i)}</span><h3>${t}</h3><p>${d}</p></div>`).join("");
   $("#look").innerHTML = ["3+ years working in the field you teach", "Clear, friendly communication in English", "Real projects and examples from your work", "Availability for at least one batch per quarter"].map(t => `<li>${icon("checkc")}${t}</li>`).join("");
-  $("#faq").innerHTML = SR.faqHTML([["Do I need teaching experience?", "No, but you'll do a short demo session so we can see how you explain things."], ["How much time does it take?", "A live batch is usually 3–5 hours a week including preparation."], ["Who owns the course content?", "You keep ownership. SkillRadius gets a licence to distribute it while you teach with us."]]);
+  $("#faq").innerHTML = SR.faqHTML([["Do I need teaching experience?", "No, but you'll do a short demo session so we can see how you explain things."], ["How much time does it take?", "A live batch is usually 3–5 hours a week including preparation."], ["Who owns the course content?", "You keep ownership. SkillRadius gets a licence to distribute it while you teach with us."], ["How are trainers paid?", "Live batches pay a fixed fee per batch. Self-paced courses pay a share of the revenue from your course, monthly. We share the exact terms after your demo session."], ["Can I teach while working full-time?", "Yes. Most of our trainers do. Weekend and weekday-evening batches are designed around a working schedule."], ["What subjects are you looking for?", "Development, data and AI, design, cloud, cybersecurity, digital marketing and creative skills such as video. If you teach something else that leads to a job, tell us in the application."], ["How long does the application take?", "About two weeks from application to a decision: a short review, a 20-minute demo session and a planning call."], ["Do I need my own equipment?", "For online batches you need a laptop, a good microphone and a stable connection. For recorded courses, our studio and editors handle production."]]);
   SR.leadForm($("#form"), { type: "trainer", title: "Application received", message: "Our academics team will contact you within 5 working days to set up a demo." });
   document.querySelectorAll("[data-scroll]").forEach(a => a.addEventListener("click", e => { e.preventDefault(); document.querySelector(a.getAttribute("href")).scrollIntoView({ behavior: "smooth" }); }));
 })();
 </script>
+<script>SR.$$("[data-i]").forEach(el => { if (!el.innerHTML) el.innerHTML = SR.icon(el.dataset.i); });</script>
 </body>
 </html>

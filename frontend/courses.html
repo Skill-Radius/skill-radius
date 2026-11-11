@@ -57,6 +57,12 @@
       </div>
     </div>
   </section>
+  <section class="band section alt">
+    <div class="wrap"><div class="sec-head"><span class="eyebrow">Self-paced courses</span><h2>What every course includes</h2><p>Buy once, learn at your own speed, and come back whenever you need a refresher.</p></div>
+      <div class="grid-3"><div class="feature"><span class="ic" data-i="play"></span><h3>Short video lessons</h3><p>Lessons are split into small topics, so you can make progress in fifteen minutes.</p></div><div class="feature"><span class="ic" data-i="check"></span><h3>Quizzes after each module</h3><p>Check that the idea has landed before you move on. Retake as often as you like.</p></div><div class="feature"><span class="ic" data-i="download"></span><h3>Notes and practice files</h3><p>Lesson notes, practice exercises and a cheat sheet for every module, as PDFs.</p></div><div class="feature"><span class="ic" data-i="help"></span><h3>Questions answered</h3><p>Ask under any lesson. Trainers reply, usually within 24 hours.</p></div><div class="feature"><span class="ic" data-i="award"></span><h3>Certificate on completion</h3><p>Finish every lesson and quiz to get a certificate with its own ID.</p></div><div class="feature"><span class="ic" data-i="clock"></span><h3>Lifetime access</h3><p>No deadline. Your progress is saved and you can resume on any device.</p></div></div>
+    </div>
+  </section>
+  <section class="band section tight"><div class="wrap narrow"><div class="sec-head"><h2>Questions about courses</h2></div><div class="acc faq" id="c-faq"></div></div></section>
 </main>
 
 <footer id="site-footer"></footer>
@@ -88,5 +94,6 @@
     empty: { title: "No courses found", hint: "Try a different search term, or clear some filters.", alt: [["Browse certifications", "certifications.html"], ["See live trainings", "trainings.html"]] }
   });
 </script>
+<script>SR.$$("[data-i]").forEach(el => el.innerHTML = SR.icon(el.dataset.i)); SR.$("#c-faq").innerHTML = SR.faqHTML([["How do I pick the right course?", "Check the level and the Requirements section on the course page. If you're unsure where to begin, the course finder on the home page suggests a starting point from three questions."], ["Can I watch a lesson before buying?", "Yes. The first lesson of every paid course is open as a preview from the course page."], ["What if the course isn't right for me?", "You can ask for a full refund within 30 days if you've completed less than 30% of the course."], ["Is a course certificate the same as a certification?", "No. A course certificate shows you finished the course. A professional certification means you passed a proctored exam, and it carries more weight with employers."], ["Do courses work on a phone?", "Yes. Lessons, quizzes and notes all work in a phone browser. A laptop is better for the coding exercises."]], false);</script>
 </body>
 </html>

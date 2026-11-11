@@ -52,6 +52,7 @@
       <div><span class="ic">${I3}</span><h3>Something looks wrong?</h3><p>Email <a href="mailto:support@skillradius.in">support@skillradius.in</a> with the ID and we'll confirm the record within one working day.</p></div>
     </div>
   </section>
+  <section class="band section tight"><div class="wrap narrow"><div class="sec-head"><span class="eyebrow">For employers</span><h2>How verification works</h2></div><div class="acc faq" id="v-faq"></div></div></section>
 </main>
 <footer id="site-footer"></footer>
 <script src="assets/js/data.js"></script>
@@ -92,5 +93,6 @@
   if (location.hash.length > 1) verify(decodeURIComponent(location.hash.slice(1)));
 })();
 </script>
+<script>SR.$("#v-faq").innerHTML = SR.faqHTML([["What does a verified result tell me?", "The learner's name, the program, the result, the issue date and, for professional certifications, the date it's valid until."], ["Does checking a certificate cost anything or need an account?", "No. Anyone with the certificate ID can check it here, free, without signing in."], ["The ID isn't found. What does that mean?", "Check for typing mistakes first; IDs start with CERT-SR. If it still isn't found, we have no record of that certificate. Write to support@skillradius.in and we'll confirm."], ["Can a certificate be withdrawn?", "Yes. If an exam attempt is later found to break the exam rules, the certificate is revoked and this page shows it as not valid."], ["Can I verify many certificates at once?", "For bulk checks during hiring, write to business@skillradius.in and we'll help."]], false);</script>
 </body>
 </html>

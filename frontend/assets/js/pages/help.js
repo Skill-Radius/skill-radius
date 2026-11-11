@@ -11,7 +11,7 @@
   function showTopic() {
     const c = SR.help.find(x => x.id === location.hash.slice(1));
     $$(".help-cat").forEach(a => a.style.borderColor = c && a.dataset.cat === c.id ? "var(--primary)" : "");
-    if (!c) { $("#topic").innerHTML = `<h2 style="font-size:22px;font-weight:600;margin-bottom:14px">Popular questions</h2><div class="acc faq">${[all[4], all[5], all[10], all[13], all[14]].map(x => article(x)).join("")}</div>`; return; }
+    if (!c) { $("#topic").innerHTML = `<h2 style="font-size:22px;font-weight:600;margin-bottom:14px">Popular questions</h2><div class="acc faq">${["How do I get a GST invoice?", "How do refunds work?", "Where do I find the join link?", "When can I take the exam?", "What happens if I fail?", "How does the proctored exam work?"].map(q => all.find(x => x.q === q)).filter(Boolean).map(x => article(x)).join("")}</div>`; return; }
     $("#topic").innerHTML = `<h2 style="font-size:22px;font-weight:600;margin-bottom:14px">${esc(c.title)}</h2><div class="acc faq">${c.items.map(([q, a], i) => article({ q, a }, i === 0)).join("")}</div>`;
   }
   function search(q) {

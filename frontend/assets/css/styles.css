@@ -768,6 +768,17 @@ p .link, span .link, label .link { display: inline; }
 .tbl td { padding: 12px; border-bottom: 1px solid var(--line); vertical-align: middle; }
 .tbl tr:last-child td { border-bottom: 0; }
 
+/* Comparison table */
+.cmp { border: 1px solid var(--primary-line); border-radius: 18px; background: #fff; box-shadow: 0 24px 48px -40px rgba(60, 90, 199, .6); }
+.cmp table { width: 100%; min-width: 560px; border-collapse: collapse; font-size: 15px; }
+.cmp th, .cmp td { padding: 14px 18px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--primary-line); }
+.cmp tbody tr:last-child th, .cmp tbody tr:last-child td { border-bottom: 0; }
+.cmp thead th { font-size: 14px; font-weight: 600; color: var(--ink); background: var(--primary-softer, #f6f8ff); }
+.cmp thead th:nth-child(2) { color: var(--brand); }
+.cmp tbody th { font-weight: 600; color: var(--ink-2); font-size: 14px; white-space: nowrap; width: 1%; }
+.cmp td:nth-child(2) { background: #f8faff; color: var(--ink); font-weight: 500; }
+.cmp td { color: var(--ink-2); }
+
 /* Jobs */
 .job { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 16px; align-items: center; background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 18px 20px; }
 .job h3 { font-size: 18px; font-weight: 600; }
@@ -1816,3 +1827,10 @@ body:has(.lg-switch) .prose a { font-weight: 500; text-underline-offset: 3px; }
 .help-cat { border-color: var(--primary-line); border-radius: 20px; transition: transform .3s cubic-bezier(.2,.7,.2,1), box-shadow .3s, border-color .3s; }
 .help-cat:hover { transform: translateY(-3px); border-color: #b9c7ff; box-shadow: 0 24px 44px -34px rgba(26, 62, 190, .6); }
 .help-cat .ic { transition: background .25s, color .25s; } .help-cat:hover .ic { background: var(--primary); color: #fff; }
+
+/* "Who does what" cards (teach page) */
+.tw .card h3 { font-size: 19px; font-weight: 600; margin-bottom: 14px; color: var(--ink); }
+.tw .check-list li { font-size: 15.5px; color: var(--ink-2); }
+.tw .check-list li span { display: inline-flex; flex: none; }
+.tw-us { background: linear-gradient(160deg, #eef2ff, #fff 70%); border-color: #b9c7ff; }
+.tw-us h3 { color: var(--brand) !important; }
