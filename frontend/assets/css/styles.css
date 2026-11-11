@@ -22,7 +22,7 @@
   --heading: #3f3f3f;
   --ink: #222222;            /* Text/Secondary */
   --ink-2: #535353;          /* Text/Tertiary */
-  --ink-3: #9e9e9e;          /* Text/Disabled */
+  --ink-3: #767676;          /* Meta text. Darkened from the Figma disabled grey (#9e9e9e) so small text passes contrast */
   --placeholder: #bebebe;
   --black: #000;
   /* Semantic */
@@ -151,7 +151,7 @@ p .link, span .link, label .link { display: inline; }
 .pill.violet { background: var(--tint); color: var(--brand); }
 .pill.grey { background: #f1f1f1; color: var(--ink-2); }
 .pill.solid { background: var(--primary); color: #fff; font-weight: 600; }
-.pill.hot { background: var(--warn); color: #fff; font-weight: 600; }
+.pill.hot { background: var(--warn); color: #3d2800; font-weight: 600; }
 .stars { color: var(--warn); letter-spacing: 1px; white-space: nowrap; }
 .star-row { display: inline-flex; gap: 0; }
 .star-row svg { width: 26px; height: 26px; }

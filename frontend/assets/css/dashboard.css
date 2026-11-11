@@ -17,7 +17,7 @@
   --chart-3: #3461ff;
   --ink: #0f1424;
   --ink-2: #5d6172;
-  --ink-3: #9a9eac;
+  --ink-3: #6f7488;
   --line: #e7e9f2;
   --track: #e9ebf2;
   --success: #3fb877;
@@ -200,6 +200,7 @@ svg { flex: none; }
 .resume { display: grid; grid-template-columns: 132px minmax(0,1fr) auto; gap: 16px; align-items: center; padding: 10px; border-radius: 14px; border: 1px solid var(--line); }
 .resume:hover { border-color: var(--primary-line); background: var(--primary-softer); }
 .resume .t { position: relative; }
+.resume .t svg.thumb { height: auto; }
 .resume .t .pill { position: absolute; left: 6px; top: 6px; }
 .resume h3 { font-size: 15.5px; font-weight: 600; line-height: 1.3; }
 .resume .next { font-size: 13px; color: var(--ink-2); margin: 3px 0 9px; display: flex; gap: 6px; align-items: center; min-width: 0; }

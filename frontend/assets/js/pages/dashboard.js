@@ -257,7 +257,7 @@
 
     const resume = [
       ...ongoing.map(r => ({ kind: "Course", title: r.title, thumb: r.thumbnail, next: r.next, done: r.done, total: r.total, unit: "lessons", t: r.lastOpened, href: `learn.html#${r.id}/${r.nextKey}`, cta: "Resume" })),
-      ...activeTrainings.map(t => ({ kind: "Training", title: t.title, color: t.trainer.color, next: t.next ? t.next.topic : "All sessions done", done: t.attendance.length, total: t.total, unit: "sessions", t: new Date(NOW - DAY / 2), href: "training.html#" + t.id, cta: "Open" }))
+      ...activeTrainings.map(t => ({ kind: "Training", title: t.title, thumb: t.img || (SR.training(t.id) || {}).img, color: t.trainer.color, next: t.next ? t.next.topic : "All sessions done", done: t.attendance.length, total: t.total, unit: "sessions", t: new Date(NOW - DAY / 2), href: "training.html#" + t.id, cta: "Open" }))
     ].sort((a, b) => b.t - a.t).slice(0, 4);
 
     const ev = [];
