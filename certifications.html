@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Professional Certifications · SkillRadius</title>
+<meta name="description" content="Industry-recognised, proctored certifications valid for 2–3 years.">
+<meta name="sr-page" content="certifications">
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/css/styles.css">
+<style>
+  /* Figma frame "View All Courses Page" (Certification section) */
+  .ch { position: relative; overflow: hidden; background: linear-gradient(90deg, #e6ecff, #fff); min-height: 241px; }
+  .ch::before { content: ""; position: absolute; inset: 0; background-image: radial-gradient(#c9d4ff 1px, transparent 1.2px); background-size: 12px 12px; opacity: .55; }
+  .ch::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(255,255,255,0) 0%, #fff 100%); opacity: .5; }
+  .ch .bursts { position: absolute; left: 0; top: 0; z-index: 1; }
+  .ch .burst { position: absolute; background: conic-gradient(from 135deg, #fff, #4e6cff); }
+  .ch .in { position: relative; z-index: 2; width: min(1347px, 100% - 2 * clamp(16px, 11vw, 190px)); margin-left: clamp(16px, 11vw, 190px); padding-block: 45px 34px; }
+  .ch .kick { display: inline-flex; align-items: center; gap: 8px; color: var(--primary); font-size: 13px; font-weight: 600; }
+  .ch .kick svg { width: 22px; height: 22px; color: var(--brand); }
+  .ch h1 { font-size: clamp(26px, 2.08vw, 36px); color: var(--primary); font-weight: 600; line-height: 1.2; margin-top: 12px; }
+  .ch .sub { font-size: clamp(17px, 1.27vw, 22px); color: #5c74ca; font-weight: 600; margin-top: 8px; }
+  .ch p { font-size: 14px; color: #242d58; margin-top: 22px; max-width: 760px; }
+  .ch .people { position: absolute; right: clamp(16px, 4.5vw, 78px); bottom: 0; display: flex; align-items: flex-end; z-index: 2; height: 215px; }
+  .ch .people img { height: 215px; width: auto; display: block; }
+  .ch .people img + img { margin-left: -72px; }
+  .stats-band { background: var(--tint); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); padding: 17px clamp(16px, 7.9vw, 136px); }
+  .stats-band div { text-align: center; position: relative; }
+  .stats-band div + div::before { content: ""; position: absolute; left: 0; top: -1px; bottom: -1px; width: 1px; background: var(--primary); }
+  .stats-band b { display: block; font-size: 20px; font-weight: 600; color: var(--brand); line-height: 1.25; }
+  .stats-band span { font-size: 12px; color: var(--ink-2); }
+  .fbar { background: #f8f9ff; border-block: 1px solid var(--tint); }
+  .fbar .in { width: min(1600px, 100% - 2 * clamp(16px, 3.7vw, 64px)); margin-inline: auto; display: flex; gap: 14px; align-items: center; padding-block: 16px; }
+  .fbar .big { flex: 1; display: flex; align-items: center; gap: 13px; height: 40px; background: #fff; border: 1px solid var(--border); border-radius: 34px; padding: 0 16px; min-width: 0; }
+  .fbar .big:focus-within { border-color: var(--primary); }
+  .fbar .big svg { width: 16px; height: 16px; color: var(--primary); flex: none; }
+  .fbar .big input { flex: 1; min-width: 0; border: 0; outline: 0; font-size: 13px; background: transparent; }
+  .fbar .pills { display: flex; gap: 10px; flex: none; }
+  .fbar .pills button { height: 40px; min-width: 90px; padding: 0 14px; border-radius: 34px; background: #eaefff; border: 1px solid #869def; color: var(--primary); font-size: 12px; font-weight: 500; cursor: pointer; white-space: nowrap; }
+  .fbar .pills button[aria-pressed="true"] { background: var(--primary); border-color: var(--primary); color: #fff; }
+  .fbar .pills button:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+  .c-list { padding-block: 57px 96px; }
+  .c-list .meta-row { display: flex; justify-content: space-between; color: #949494; font-size: 15px; margin: -30px 0 18px; min-height: 20px; }
+  #grid { gap: 57px 24px; }
+  .cats { display: flex; flex-wrap: wrap; gap: 8px; margin: -24px 0 34px; }
+  .cats button { height: 34px; padding: 0 14px; border-radius: 34px; border: 1px solid var(--tint); background: #fff; color: var(--ink-2); font-size: 13px; font-weight: 500; cursor: pointer; }
+  .cats button[aria-pressed="true"] { background: var(--tint); border-color: #869def; color: var(--brand); }
+  .cats button .c { color: var(--ink-3); margin-left: 4px; }
+  .h-head { text-align: center; display: grid; justify-items: center; }
+  .h-head .eyebrow { font-size: clamp(16px, 1.39vw, 24px); letter-spacing: .08em; }
+  .h-head h2 { font-size: clamp(28px, 2.78vw, 48px); color: var(--heading); font-weight: 600; margin-top: 14px; line-height: 1.15; }
+  .h-head .hl { color: var(--primary); }
+  .c-how { background: #f8f9ff; padding-block: 88px; }
+  .c4w { width: min(1538px, 100% - 2 * clamp(16px, 5.5vw, 95px)); }
+  .how4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; margin-top: 56px; }
+  .how4 > div { background: #fff; border: 1px solid var(--tint); border-radius: 18px; padding: 26px 24px; display: grid; gap: 10px; align-content: start; }
+  .how4 .n { width: 44px; height: 44px; border-radius: 50%; background: var(--primary); color: #fff; display: grid; place-items: center; font-weight: 600; font-size: 18px; }
+  .how4 .ic { width: 52px; height: 52px; border-radius: 14px; background: var(--tint); color: var(--primary); display: grid; place-items: center; }
+  .how4 .ic svg { width: 26px; height: 26px; }
+  .how4 h3 { font-size: 18px; font-weight: 600; color: #000; }
+  .how4 p { font-size: 14.5px; color: var(--ink-2); }
+  .c-faq { padding-block: 88px; }
+  @media (max-width: 1100px) { .how4 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 560px) { .how4 { grid-template-columns: minmax(0, 1fr); } }
+  @media (max-width: 1280px) { #grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } .ch .people img + img { display: none; } }
+  @media (max-width: 1100px) { .fbar .in { flex-wrap: wrap; } .fbar .big { flex-basis: 100%; } .fbar .pills { flex-wrap: wrap; } }
+  @media (max-width: 960px) { #grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; } .ch .people { display: none; } .stats-band { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 14px; } .stats-band div:nth-child(3)::before { display: none; } }
+  @media (max-width: 640px) { #grid { grid-template-columns: minmax(0, 1fr); } .ch .bursts { opacity: .35; } .fbar .pills { overflow-x: auto; flex-wrap: nowrap; width: 100%; padding-bottom: 2px; } }
+</style>
+</head>
+<body>
+<header id="site-header"></header>
+
+<main>
+  <section class="ch">
+    <div class="bursts" aria-hidden="true"><span class="burst" style="left:-128px;top:-7px;width:255px;height:255px;clip-path:path('M124.7 8C125.6 5.3 129.4 5.3 130.3 8L145.5 50.7C146.2 52.7 148.7 53.4 150.3 52L184.8 22.6C187 20.7 190.2 22.6 189.7 25.4L181.5 70C181.1 72.1 182.9 73.9 185 73.5L229.6 65.3C232.4 64.8 234.3 68 232.4 70.2L203 104.7C201.6 106.3 202.3 108.8 204.3 109.5L247 124.7C249.7 125.6 249.7 129.4 247 130.3L204.3 145.5C202.3 146.2 201.6 148.7 203 150.3L232.4 184.8C234.3 187 232.4 190.2 229.6 189.7L185 181.5C182.9 181.1 181.1 182.9 181.5 185L189.7 229.6C190.2 232.4 187 234.3 184.8 232.4L150.3 203C148.7 201.6 146.2 202.3 145.5 204.3L130.3 247C129.4 249.7 125.6 249.7 124.7 247L109.5 204.3C108.8 202.3 106.3 201.6 104.7 203L70.2 232.4C68 234.3 64.8 232.4 65.3 229.6L73.5 185C73.9 182.9 72.1 181.1 70 181.5L25.4 189.7C22.6 190.2 20.7 187 22.6 184.8L52 150.3C53.4 148.7 52.7 146.2 50.7 145.5L8 130.3C5.3 129.4 5.3 125.6 8 124.7L50.7 109.5C52.7 108.8 53.4 106.3 52 104.7L22.6 70.2C20.7 68 22.6 64.8 25.4 65.3L70 73.5C72.1 73.9 73.9 72.1 73.5 70L65.3 25.4C64.8 22.6 68 20.7 70.2 22.6L104.7 52C106.3 53.4 108.8 52.7 109.5 50.7L124.7 8Z');opacity:1"></span><span class="burst" style="left:-67px;top:1px;width:193px;height:193px;clip-path:path('M93.8 8C94.7 5.3 98.5 5.3 99.4 8L109.9 37.4C110.6 39.4 113.1 40.1 114.7 38.7L138.5 18.4C140.6 16.6 143.9 18.5 143.4 21.3L137.7 52C137.3 54.1 139.1 55.9 141.2 55.5L172 49.8C174.8 49.3 176.6 52.6 174.8 54.7L154.5 78.5C153.1 80.1 153.8 82.6 155.8 83.3L185.3 93.8C187.9 94.7 187.9 98.5 185.3 99.4L155.8 109.9C153.8 110.6 153.1 113.1 154.5 114.7L174.8 138.5C176.6 140.6 174.8 143.9 172 143.4L141.2 137.7C139.1 137.3 137.3 139.1 137.7 141.2L143.4 172C143.9 174.8 140.6 176.6 138.5 174.8L114.7 154.5C113.1 153.1 110.6 153.8 109.9 155.8L99.4 185.3C98.5 187.9 94.7 187.9 93.8 185.3L83.3 155.8C82.6 153.8 80.1 153.1 78.5 154.5L54.7 174.8C52.6 176.6 49.3 174.8 49.8 172L55.5 141.2C55.9 139.1 54.1 137.3 52 137.7L21.3 143.4C18.5 143.9 16.6 140.6 18.4 138.5L38.7 114.7C40.1 113.1 39.4 110.6 37.4 109.9L8 99.4C5.3 98.5 5.3 94.7 8 93.8L37.4 83.3C39.4 82.6 40.1 80.1 38.7 78.5L18.4 54.7C16.6 52.6 18.5 49.3 21.3 49.8L52 55.5C54.1 55.9 55.9 54.1 55.5 52L49.8 21.3C49.3 18.5 52.6 16.6 54.7 18.4L78.5 38.7C80.1 40.1 82.6 39.4 83.3 37.4L93.8 8Z');opacity:1"></span><span class="burst" style="left:-23px;top:27px;width:135px;height:135px;clip-path:path('M64.8 8C65.8 5.3 69.5 5.3 70.5 8L76.5 25C77.2 27 79.7 27.6 81.3 26.3L95.1 14.5C97.2 12.7 100.5 14.6 100 17.4L96.7 35.1C96.3 37.2 98.1 39 100.2 38.6L117.9 35.4C120.7 34.8 122.6 38.1 120.8 40.3L109 54C107.7 55.6 108.3 58.1 110.3 58.8L127.3 64.8C130 65.8 130 69.5 127.3 70.5L110.3 76.5C108.3 77.2 107.7 79.7 109 81.3L120.8 95.1C122.6 97.2 120.7 100.5 117.9 100L100.2 96.7C98.1 96.3 96.3 98.1 96.7 100.2L100 117.9C100.5 120.7 97.2 122.6 95.1 120.8L81.3 109C79.7 107.7 77.2 108.3 76.5 110.3L70.5 127.3C69.5 130 65.8 130 64.8 127.3L58.8 110.3C58.1 108.3 55.6 107.7 54 109L40.3 120.8C38.1 122.6 34.8 120.7 35.4 117.9L38.6 100.2C39 98.1 37.2 96.3 35.1 96.7L17.4 100C14.6 100.5 12.7 97.2 14.5 95.1L26.3 81.3C27.6 79.7 27 77.2 25 76.5L8 70.5C5.3 69.5 5.3 65.8 8 64.8L25 58.8C27 58.1 27.6 55.6 26.3 54L14.5 40.3C12.7 38.1 14.6 34.8 17.4 35.4L35.1 38.6C37.2 39 39 37.2 38.6 35.1L35.4 17.4C34.8 14.6 38.1 12.7 40.3 14.5L54 26.3C55.6 27.6 58.1 27 58.8 25L64.8 8Z');opacity:1"></span></div>
+    <div class="in">
+      <span class="kick"><span data-i="cert" style="display:grid"></span>Professional Certifications</span>
+      <h1>Available Certification Programs</h1>
+      <div class="sub">Industry-Recognised. Employer-Trusted.</div>
+      <p>Join thousands of professionals who have advanced their careers with our expert designed certification programs.</p>
+    </div>
+    <div class="people" aria-hidden="true"><img src="assets/img/cert-hero-1.webp" alt=""><img src="assets/img/cert-hero-2.webp" alt=""></div>
+  </section>
+
+  <div class="stats-band" aria-label="SkillRadius certification in numbers">
+    <div><b>25+</b><span>Certifications</span></div>
+    <div><b>50,000+</b><span>Certified Professionals</span></div>
+    <div><b>2-3 Years</b><span>Certificate Validity</span></div>
+    <div><b>ISO Certified</b><span>Organisation</span></div>
+  </div>
+
+  <div class="fbar">
+    <form class="in" id="f" role="search">
+      <label class="big"><span data-i="search" style="display:grid"></span><input id="q" type="search" placeholder="Search for certifications (e.g. Python, UI/UX, Data Science...)" aria-label="Search certifications" autocomplete="off"></label>
+      <div class="pills" role="group" aria-label="Filter and sort">
+        <button type="button" id="p-valid" aria-pressed="false">All Validity</button>
+        <button type="button" data-sort="min" aria-pressed="false">Min Fee</button>
+        <button type="button" data-sort="max" aria-pressed="false">Max Fee</button>
+        <button type="button" data-sort="new" aria-pressed="false">Newest First</button>
+      </div>
+    </form>
+  </div>
+
+  <section class="c-list">
+    <div class="wrap wide">
+      <div class="cats" id="cats" role="group" aria-label="Category"></div>
+      <div class="meta-row"><span id="summary" aria-live="polite"></span><span id="count"></span></div>
+      <div class="grid-4" id="grid"></div>
+    </div>
+  </section>
+
+  <section class="c-how">
+    <div class="wrap c4w">
+      <div class="h-head"><span class="eyebrow">How Certification Works</span><h2>Study, sit the exam, <span class="hl">get certified</span></h2></div>
+      <div class="how4" id="how"></div>
+    </div>
+  </section>
+
+  <section class="c-faq">
+    <div class="wrap narrow">
+      <div class="h-head"><span class="eyebrow">FAQ</span><h2>Certification questions</h2></div>
+      <div class="acc faq" id="faq" style="margin-top:36px"></div>
+    </div>
+  </section>
+</main>
+
+<footer id="site-footer"></footer>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/ui.js"></script>
+<script src="assets/js/fx.js"></script>
+<script>
+(function () {
+  const { $, $$, esc, icon } = SR;
+  $$("[data-i]").forEach(el => el.innerHTML = icon(el.dataset.i));
+  const all = SR.publicCerts();
+  const VALID = ["All Validity", "2 Years", "3 Years"];
+  const st = { q: "", valid: 0, sort: "", cat: "" };
+  // State lives in the URL hash so searches can be shared: #q=python&v=2&s=min
+  (function read() { const p = new URLSearchParams(location.hash.slice(1)); st.q = p.get("q") || ""; st.valid = +(p.get("v") || 0) % 3; st.sort = p.get("s") || ""; st.cat = p.get("cat") || ""; })();
+  const save = () => { const p = new URLSearchParams(); if (st.q) p.set("q", st.q); if (st.valid) p.set("v", st.valid); if (st.sort) p.set("s", st.sort); if (st.cat) p.set("cat", st.cat); const h = p.toString(); history.replaceState(null, "", h ? "#" + h : location.pathname.split("/").pop()); };
+  const words = () => st.q.toLowerCase().split(/[^a-z0-9+#]+/).filter(w => w.length > 1 && !["the", "and", "for", "certification", "certified"].includes(w));
+  const hit = (c) => { const ws = words(); if (!ws.length) return true; const hay = [c.title, c.code, c.summary, c.cat, ...(c.skills || []), ...(c.modules || [])].join(" ").toLowerCase(); return ws.filter(w => hay.includes(w)).length >= Math.ceil(ws.length / 2); };
+  function render() {
+    let list = all.filter(hit).filter(c => !st.valid || c.validity === st.valid + 1).filter(c => !st.cat || c.cat === st.cat);
+    const cats = [...new Set(all.map(c => c.cat))];
+    $("#cats").innerHTML = ["", ...cats].map(k => `<button type="button" data-cat="${esc(k)}" aria-pressed="${st.cat === k}">${k ? esc(k) : "All categories"}<span class="c">${all.filter(hit).filter(c => !k || c.cat === k).length}</span></button>`).join("");
+    if (st.sort === "min") list.sort((a, b) => a.price - b.price);
+    else if (st.sort === "max") list.sort((a, b) => b.price - a.price);
+    else if (st.sort === "new") list.sort((a, b) => new Date("1 " + (b.updated || "Jan 2026")) - new Date("1 " + (a.updated || "Jan 2026")) || all.indexOf(b) - all.indexOf(a));
+    $("#q").value = st.q;
+    $("#p-valid").textContent = VALID[st.valid]; $("#p-valid").setAttribute("aria-pressed", String(!!st.valid));
+    $$("[data-sort]").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.sort === st.sort)));
+    $("#summary").textContent = st.q ? `Showing certification results for “${st.q}”` : "";
+    $("#count").textContent = st.q || st.valid || st.cat ? `${list.length} result${list.length === 1 ? "" : "s"} matched` : "";
+    $("#grid").innerHTML = list.length ? list.map(SR.certCard).join("") : `<div class="empty" style="grid-column:1/-1"><img src="assets/img/art-empty-mark.webp" alt="" width="220" height="220" style="margin:0 auto 12px"><h3 style="color:#aab8ff;font-size:clamp(26px,2.1vw,36px)">No certifications found</h3><p class="muted">Try another keyword, like “Python” or “Design”.</p><div class="btn-row" style="justify-content:center;margin-top:14px"><button class="btn" type="button" id="reset">Clear search &amp; filters</button><a class="btn ghost" href="courses.html">Browse courses</a></div></div>`;
+    const r = $("#reset"); if (r) r.addEventListener("click", () => { st.q = ""; st.valid = 0; st.sort = ""; st.cat = ""; save(); render(); });
+  }
+  let t; $("#q").addEventListener("input", e => { clearTimeout(t); t = setTimeout(() => { st.q = e.target.value.trim(); save(); render(); }, 150); });
+  $("#f").addEventListener("submit", e => { e.preventDefault(); st.q = $("#q").value.trim(); save(); render(); });
+  $("#p-valid").addEventListener("click", () => { st.valid = (st.valid + 1) % 3; save(); render(); });
+  $$("[data-sort]").forEach(b => b.addEventListener("click", () => { st.sort = st.sort === b.dataset.sort ? "" : b.dataset.sort; save(); render(); }));
+  $("#cats").addEventListener("click", e => { const b = e.target.closest("[data-cat]"); if (!b) return; st.cat = b.dataset.cat; save(); render(); });
+  $("#how").innerHTML = [["auto_stories", "Enrol & study", "Get 24–36 months of access to notes, practice quizzes and mock tests."], ["quiz", "Practise", "Check your readiness with module quizzes and mock tests. Most learners take 4–8 weeks."], ["security", "Proctored exam", "Sit the online exam with webcam proctoring. Free retakes on most certifications."], ["award_star", "Get certified", "Receive a certificate with a unique ID, valid for 2–3 years."]]
+    .map(([i, t, d], k) => `<div><span class="ic">${SR.ficon(i)}</span><h3>${k + 1}. ${t}</h3><p>${d}</p></div>`).join("");
+  $("#faq").innerHTML = SR.faqHTML([["Are the certifications recognised by employers?", "They're proctored and industry-recognised, and each one has a unique ID employers can check on our Verify page."], ["How long is a certification valid?", "Two or three years from the exam date, depending on the program. The validity is shown on every card."], ["What if I fail the exam?", "Retake it as many times as you need at no extra cost. Your best score goes on the certificate."], ["Do I need to take a course first?", "No. Each certification includes its own study notes and mock tests. Our courses and live trainings help if you want more depth."], ["Can my company pay for my certification?", "Yes. We issue GST invoices, and teams can buy in bulk through SkillRadius for Business."]]);
+  addEventListener("hashchange", () => { const p = new URLSearchParams(location.hash.slice(1)); st.q = p.get("q") || ""; render(); });
+  render();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Live Trainings · SkillRadius</title>
+<meta name="description" content="Trainer-led batches online and in person with fixed schedules, recordings and capstone projects.">
+<meta name="sr-page" content="trainings">
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<header id="site-header"></header>
+
+<main>
+  <section class="page-hero band center">
+    <div class="wrap inner">
+      <span class="eyebrow">Live trainings</span>
+      <h1>Learn live with <span class="hl">industry trainers</span></h1>
+      <p>Small batches, fixed schedules and real feedback, online or at our studios. Every session is recorded, so you never fall behind.</p>
+      <form class="searchbar" id="search-form" role="search" style="margin-top:10px">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+        <input id="q" type="search" placeholder="Search batches, e.g. data analytics" aria-label="Search trainings" autocomplete="off">
+        <button class="btn" type="submit">Search</button>
+      </form>
+      <div class="stat-strip" style="margin-top:28px;width:100%;max-width:900px">
+        <div><b>120+</b><span>Industry trainers</span></div><div><b>4.8★</b><span>Average batch rating</span></div><div><b>≤ 40</b><span>Learners per batch</span></div><div><b>100%</b><span>Sessions recorded</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band section tight">
+    <div class="wrap catalog">
+      <aside class="filters" id="filters" aria-label="Filters">
+        <div class="fhead"><h2>Filter</h2><button class="link" type="button" id="clear" style="border:0;background:none;font-size:14px">Clear all</button></div>
+        <div class="fgroup" id="f-mode"></div>
+        <div class="fgroup" id="f-cat"></div>
+        <div class="fgroup" id="f-month"></div>
+        <div class="fgroup" id="f-length"></div>
+        <div class="fgroup" id="f-time"></div>
+      </aside>
+      <div>
+        <div class="results-bar">
+          <p id="summary" aria-live="polite"></p>
+          <div class="row">
+            <button class="btn plain sm filter-toggle" id="filter-toggle" aria-expanded="false" aria-controls="filters">Filters</button>
+            <label class="small muted" for="sort">Sort</label>
+            <select class="select" id="sort">
+              <option value="soonest">Starting soonest</option>
+              <option value="seats">Fewest seats left</option>
+              <option value="price-asc">Price: low to high</option>
+              <option value="price-desc">Price: high to low</option>
+            </select>
+          </div>
+        </div>
+        <div class="active-filters" id="chips"></div>
+        <div class="grid-2" id="grid"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band section alt">
+    <div class="wrap narrow">
+      <div class="sec-head"><span class="eyebrow">How live batches work</span><h2>What to expect</h2></div>
+      <div class="acc faq" id="faq"></div>
+    </div>
+  </section>
+</main>
+
+<footer id="site-footer"></footer>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/ui.js"></script>
+<script src="assets/js/fx.js"></script>
+<script src="assets/js/catalog.js"></script>
+<script>
+  const month = t => new Date(t.start).toLocaleDateString("en-IN", { month: "long", year: "numeric" });
+  SR.catalog({
+    items: SR.openTrainings(),
+    noun: ["batch", "batches"],
+    text: t => [t.title, t.summary, t.cat, t.batch, t.mode, SR.trainer(t.trainer).name, ...t.syllabus.map(s => s[1] + " " + s[2])].join(" "),
+    groups: [
+      { id: "mode", el: "#f-mode", label: "Format", order: ["Live online", "In-person"], values: t => [t.mode === "online" ? "Live online" : "In-person"] },
+      { id: "cat", el: "#f-cat", label: "Category", values: t => [t.cat] },
+      { id: "month", el: "#f-month", label: "Starts in", order: [...new Set(SR.openTrainings().map(month))], values: t => [month(t)] },
+      { id: "length", el: "#f-length", label: "Length", order: ["Weekend workshop", "Up to 8 weeks", "9–12 weeks"], values: t => [t.weeks === 0 ? "Weekend workshop" : t.weeks <= 8 ? "Up to 8 weeks" : "9–12 weeks"] },
+      { id: "time", el: "#f-time", label: "Timing", order: ["Weekends", "Weekday mornings", "Weekday evenings"], values: t => [/Sat|Sun/.test(t.days) ? "Weekends" : parseInt(t.time) < 12 ? "Weekday mornings" : "Weekday evenings"] }
+    ],
+    sorts: {
+      soonest: (a, b) => new Date(a.start) - new Date(b.start),
+      seats: (a, b) => (a.seats - a.taken) - (b.seats - b.taken),
+      "price-asc": (a, b) => a.price - b.price,
+      "price-desc": (a, b) => b.price - a.price
+    },
+    card: t => SR.trainingCard(t),
+    empty: { title: "No batches match", hint: "New batches open every month. Try another filter, or browse self-paced courses.", alt: [["Browse courses", "courses.html"]] }
+  });
+  SR.$("#faq").innerHTML = SR.faqHTML([
+    ["How big is each batch?", "Online batches are capped at 40 learners and in-person workshops at 24, so trainers can review everyone's work."],
+    ["What if I miss a session?", "Every session is recorded and posted to your dashboard within a few hours. You can also ask questions in the batch's discussion channel."],
+    ["Do I need to install anything?", "Online sessions run in the browser. For coding batches we send a setup guide a week before the start date."],
+    ["Can I switch to a later batch?", "Yes, once, free of charge, up to 3 days before your batch starts. Write to support@skillradius.in."],
+    ["Do I get a certificate?", "Yes. Attend at least 75% of sessions and submit the capstone to receive a course certificate with a verifiable ID."]
+  ]);
+</script>
+</body>
+</html>

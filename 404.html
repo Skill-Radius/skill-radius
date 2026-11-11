@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Page not found · SkillRadius</title>
+<meta name="description" content="The page you were looking for could not be found. Search courses, certifications and live batches on SkillRadius.">
+<meta name="sr-page" content="404">
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/css/styles.css">
+<style>
+  .nf { position: relative; overflow: hidden; text-align: center; padding-block: 96px; }
+  .nf .wrap { position: relative; display: grid; grid-template-columns: minmax(0,1fr); gap: 16px; justify-items: center; }
+  .nf .big { font-size: clamp(96px, 18vw, 180px); font-weight: 800; line-height: 1; color: var(--primary); letter-spacing: -0.04em; background: linear-gradient(135deg, var(--brand), #8a9dff); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .nf h1 { font-size: clamp(24px, 3.4vw, 34px); font-weight: 600; }
+  .nf p { color: var(--ink-2); max-width: 48ch; }
+  .nf { background: radial-gradient(90% 70% at 50% 0%, #e4eaff 0%, #f6f8ff 55%, #fff 100%); }
+  .nf-art { position: relative; display: flex; align-items: center; justify-content: center; gap: clamp(8px, 1.6vw, 22px); height: clamp(150px, 20vw, 230px); margin-bottom: 6px; }
+  .nf-art .d { font-size: clamp(110px, 16vw, 200px); font-weight: 800; line-height: 1; letter-spacing: -.04em; background: linear-gradient(160deg, #3c5ac7, #8ea2ff); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .nf-art .o { position: relative; width: clamp(100px, 13vw, 160px); aspect-ratio: 1; border-radius: 50%; display: grid; place-items: center; background: conic-gradient(from 210deg, #ffffff, #8ea2ff, #3c5ac7, #ffffff); padding: 5px; box-shadow: 0 30px 60px -24px rgba(60, 90, 199, .7); }
+  .nf-art .o img { width: 100%; height: 100%; border-radius: 50%; background: #fff; padding: 24%; }
+  .nf-art .ring { position: absolute; left: 50%; top: 50%; border-radius: 50%; border: 1.5px dashed #c3cdf5; transform: translate(-50%, -50%); }
+  .nf-art .r1 { width: clamp(180px, 22vw, 260px); aspect-ratio: 1; } .nf-art .r2 { width: clamp(260px, 32vw, 380px); aspect-ratio: 1; opacity: .7; } .nf-art .r3 { width: clamp(340px, 44vw, 520px); aspect-ratio: 1; opacity: .4; }
+  @media (prefers-reduced-motion: no-preference) { .nf-art .o { animation: nf-bob 4s ease-in-out infinite; } .nf-art .ring { animation: nf-spin 40s linear infinite; } .nf-art .r2 { animation-direction: reverse; } }
+  @keyframes nf-bob { 50% { transform: translateY(-10px) rotate(-6deg); } }
+  @keyframes nf-spin { to { transform: translate(-50%, -50%) rotate(360deg); } }
+  .nf-links { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px; margin-top: 18px; font-size: 13.5px; color: var(--ink-3); }
+  .nf-links a { padding: 6px 12px; border-radius: 99px; background: #fff; border: 1px solid var(--primary-line); color: var(--brand); text-decoration: none; font-weight: 500; } .nf-links a:hover { background: var(--primary); color: #fff; border-color: var(--primary); }
+  .nf .searchbar { margin-top: 10px; width: min(560px, 100%); }
+</style>
+</head>
+<body>
+<header id="site-header"></header>
+<main class="band nf">
+  <svg class="rays" viewBox="0 0 1440 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><g fill="none" stroke="#d3dbf8" stroke-width="1.2" stroke-dasharray="5 7"><path d="M0 0L560 300M1440 0L880 300M0 600L560 300M1440 600L880 300"/><circle cx="720" cy="300" r="380"/></g></svg>
+  <div class="wrap">
+    <div class="nf-art" aria-hidden="true"><span class="ring r1"></span><span class="ring r2"></span><span class="ring r3"></span><span class="d">4</span><span class="o"><img src="assets/img/logo-mark.svg" alt=""></span><span class="d">4</span></div>
+    <h1>We couldn't find that page</h1>
+    <p>The link may be broken, or the course may have moved. Search for what you need, or head back home.</p>
+    <form class="searchbar" id="f" role="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><input id="q" type="search" placeholder="Search courses" aria-label="Search courses"><button class="btn" type="submit">Search</button></form>
+    <div class="btn-row" style="margin-top:8px"><a class="btn" href="index.html">Go to home</a><a class="btn ghost" href="courses.html">Browse courses</a></div>
+    <div class="nf-links"><span>Popular right now</span><a href="certifications.html">Certifications</a><a href="trainings.html">Live trainings</a><a href="events.html">Free events</a><a href="verify.html">Verify a certificate</a><a href="help.html">Help centre</a></div>
+  </div>
+</main>
+<footer id="site-footer"></footer>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/ui.js"></script>
+<script src="assets/js/fx.js"></script>
+<script>SR.$("#f").addEventListener("submit", e => { e.preventDefault(); location.href = "courses.html#q=" + encodeURIComponent(SR.$("#q").value.trim()); });</script>
+</body>
+</html>

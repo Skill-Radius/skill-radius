@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Free Event · SkillRadius</title>
+<meta name="description" content="Free live webinar or workshop on SkillRadius: agenda, speaker, date and free registration.">
+<meta name="sr-page" content="event">
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/css/styles.css">
+<style>
+  .ev { padding-block: clamp(28px, 4vw, 56px) 80px; }
+  .ev .in { width: min(1200px, 100% - 2 * var(--gutter, 16px)); margin-inline: auto; display: grid; grid-template-columns: minmax(0, 1fr) 380px; gap: clamp(24px, 4vw, 56px); align-items: start; }
+  .ev-crumbs { font-size: 13.5px; color: var(--ink-3); display: flex; gap: 8px; flex-wrap: wrap; }
+  .ev-crumbs a { color: var(--ink-3); text-decoration: none; } .ev-crumbs a:hover { color: var(--primary); }
+  .ev h1 { font-size: clamp(28px, 2.6vw, 42px); font-weight: 600; color: var(--heading); line-height: 1.2; margin-top: 14px; letter-spacing: -.01em; }
+  .ev-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 18px; }
+  .ev-meta { display: flex; flex-wrap: wrap; gap: 10px 24px; margin-top: 18px; color: var(--ink-2); font-size: 15px; }
+  .ev-meta span { display: inline-flex; gap: 8px; align-items: center; } .ev-meta svg { width: 18px; height: 18px; color: var(--primary); }
+  .ev-img { width: 100%; aspect-ratio: 16 / 8; object-fit: cover; border-radius: 20px; margin-top: 28px; box-shadow: 0 30px 60px -36px rgba(26, 62, 190, .5); }
+  .ev h2 { font-size: 22px; font-weight: 600; color: var(--heading); margin-top: 40px; }
+  .ev p.lead2 { font-size: 16px; color: var(--ink-2); line-height: 1.65; margin-top: 12px; }
+  .ev-agenda { list-style: none; padding: 0; margin: 16px 0 0; display: grid; gap: 10px; counter-reset: a; }
+  .ev-agenda li { counter-increment: a; display: flex; gap: 14px; align-items: center; padding: 14px 16px; border: 1px solid var(--primary-line); border-radius: 14px; background: #fff; font-weight: 500; }
+  .ev-agenda li::before { content: counter(a, decimal-leading-zero); font-size: 13px; font-weight: 700; color: var(--primary); background: var(--pill-bg); border-radius: 9px; padding: 5px 8px; }
+  .ev-host { display: flex; gap: 16px; align-items: center; margin-top: 16px; padding: 18px; border-radius: 16px; background: var(--primary-softer); border: 1px solid var(--pill-bg); }
+  .ev-host .avatar-i { width: 56px; height: 56px; font-size: 18px; }
+  .ev-host b { display: block; font-size: 16px; } .ev-host span { color: var(--ink-3); font-size: 14px; }
+  .ev-host a { margin-left: auto; color: var(--primary); font-weight: 600; text-decoration: none; font-size: 14px; white-space: nowrap; }
+  .ev-card { position: sticky; top: calc(var(--header-h) + 24px); background: #fff; border: 1px solid var(--primary-line); border-radius: 22px; padding: 24px; box-shadow: 0 30px 60px -36px rgba(26, 62, 190, .5); display: grid; gap: 16px; }
+  .ev-date { display: flex; gap: 14px; align-items: center; }
+  .ev-date .cal { width: 64px; flex: none; border-radius: 14px; overflow: hidden; border: 1px solid var(--primary-line); text-align: center; }
+  .ev-date .cal span { display: block; background: var(--primary); color: #fff; font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; padding: 4px 0; }
+  .ev-date .cal b { display: block; font-size: 26px; color: var(--heading); padding: 4px 0 6px; }
+  .ev-date div b { font-size: 16px; } .ev-date div span { display: block; color: var(--ink-3); font-size: 14px; }
+  .ev-free { font-size: 28px; font-weight: 700; color: var(--heading); } .ev-free small { font-size: 14px; font-weight: 500; color: var(--ink-3); margin-left: 6px; }
+  .ev-seats { font-size: 13.5px; color: var(--ink-2); } .ev-seats .bar { height: 6px; border-radius: 6px; background: #eceff7; margin-top: 8px; overflow: hidden; } .ev-seats .bar i { display: block; height: 100%; background: var(--primary); border-radius: 6px; }
+  .ev-card .btn { width: 100%; height: 48px; border-radius: 12px; font-size: 16px; }
+  .ev-card ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; font-size: 14px; color: var(--ink-2); }
+  .ev-card li { display: flex; gap: 8px; align-items: center; } .ev-card li svg { width: 16px; height: 16px; color: #1f8a5b; flex: none; }
+  .ev-share { display: flex; gap: 8px; justify-content: center; font-size: 13.5px; color: var(--ink-3); align-items: center; }
+  .ev-share button { border: 1px solid var(--primary-line); background: #fff; border-radius: 10px; padding: 6px 12px; font: inherit; color: var(--primary); cursor: pointer; }
+  .ev-more { width: min(1200px, 100% - 2 * var(--gutter, 16px)); margin: 72px auto 0; }
+  .ev-more .grid-3 { margin-top: 20px; }
+  .ev-past { padding: 14px 16px; border-radius: 14px; background: #fff7e6; color: #8a5a00; font-size: 14px; }
+  @media (max-width: 960px) { .ev .in { grid-template-columns: minmax(0, 1fr); } .ev-card { position: static; } .ev-mreg { display: inline-flex !important; } }
+  .ev-mreg { display: none !important; margin-top: 18px; height: 46px; border-radius: 12px; padding: 0 22px; }
+</style>
+</head>
+<body>
+<header id="site-header"></header>
+<main class="ev" id="main"></main>
+<footer id="site-footer"></footer>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/ui.js"></script>
+<script src="assets/js/fx.js"></script>
+<script>
+(function () {
+  const { $, esc, icon } = SR;
+  const render = () => {
+    const e = SR.events.find(x => x.id === decodeURIComponent(location.hash.slice(1)));
+    if (!e) { location.replace(location.hash.length > 1 ? "404.html" : "events.html"); return; }
+    const d = new Date(e.date), h = SR.trainer(e.host), past = e.date <= Date.now(), reg = SR.eventRegs().includes(e.id), left = Math.max(0, e.seats - e.registered), full = left === 0;
+    document.title = e.title + " · SkillRadius";
+    const others = SR.events.filter(x => x.id !== e.id && x.date > Date.now()).sort((a, b) => a.date - b.date).slice(0, 3);
+    $("#main").innerHTML = `
+      <div class="in">
+        <div>
+          <nav class="ev-crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><a href="events.html">Free events</a><span>/</span><span>${esc(e.type)}</span></nav>
+          <h1>${esc(e.title)}</h1>
+          <div class="ev-tags"><span class="pill violet">${esc(e.type)}</span><span class="pill green">Free</span>${past ? `<span class="pill grey">Recording available</span>` : reg ? `<span class="pill green">${icon("check")}You're registered</span>` : ""}</div>
+          <div class="ev-meta"><span>${icon("cal")}${d.toLocaleDateString("en-IN", { weekday: "long", day: "numeric", month: "long", year: "numeric" })}</span><span>${icon("clock")}${d.toLocaleTimeString("en-IN", { hour: "numeric", minute: "2-digit" })} IST · ${e.mins} min</span><span>${icon("globe")}Online, live</span></div>${past ? "" : `<button type="button" class="btn ev-mreg" id="ev-jump">${reg ? "Add to calendar" : "Register free"} ${icon("arrow")}</button>`}
+          <img class="ev-img" src="${e.img}" alt="">
+          <h2>About this ${esc(e.type.toLowerCase())}</h2>
+          <p class="lead2">${esc(e.desc)}</p>
+          ${(e.topics || []).length ? `<h2>What we'll cover</h2><ol class="ev-agenda">${e.topics.map(t => `<li>${esc(t)}</li>`).join("")}</ol>` : ""}
+          <h2>Your host</h2>
+          <div class="ev-host"><span class="avatar-i" style="background:${h.color}">${SR.initials(h.name)}</span><div><b>${esc(h.name)}</b><span>${esc(h.role)}</span></div>${e.host && SR.instructors[e.host] ? `<a href="instructor.html#${e.host}">View profile →</a>` : ""}</div>
+        </div>
+        <aside class="ev-card" id="ev-card">
+          <div class="ev-date"><span class="cal"><span>${d.toLocaleDateString("en-IN", { month: "short" })}</span><b>${d.getDate()}</b></span><div><b>${d.toLocaleDateString("en-IN", { weekday: "long" })}, ${d.toLocaleTimeString("en-IN", { hour: "numeric", minute: "2-digit" })}</b><span>${e.mins} minutes · Online</span></div></div>
+          ${past ? `<p class="ev-past">This ${esc(e.type.toLowerCase())} has ended. The recording is free for registered members.</p><a class="btn" href="${SR.auth.user() ? "dashboard.html" : "signup.html"}">${SR.auth.user() ? "Go to My Learning" : "Sign up free to watch"}</a>`
+            : `<div class="ev-free">Free<small>no payment needed</small></div>
+          <div class="ev-seats"><b>${left}</b> of ${e.seats} seats left<div class="bar"><i style="width:${Math.min(100, Math.round(e.registered / e.seats * 100))}%"></i></div></div>
+          ${reg ? `<button class="btn" data-ics="${e.id}">${icon("cal")}Add to calendar</button><p class="tiny muted" style="text-align:center">The joining link is in your email.</p>` : `<button class="btn" id="ev-reg" ${full ? "disabled" : ""}>${full ? "Seats full" : "Register free"}</button>`}
+          <div class="cdn" data-countdown="${e.date}"><span class="dot" aria-hidden="true"></span><span class="cdn-l">Starts in</span><span class="cdn-t" aria-live="off"></span></div>`}
+          <ul><li>${icon("check")}Live Q&amp;A with the host</li><li>${icon("check")}Recording sent to registered learners</li><li>${icon("check")}Reminder by email and WhatsApp</li></ul>
+          <div class="ev-share">Share<button type="button" id="ev-share">Copy link</button></div>
+        </aside>
+      </div>
+      ${others.length ? `<section class="ev-more"><h2 style="font-size:24px;font-weight:600;color:var(--heading)">More free events</h2><div class="grid-3">${others.map(o => { const od = new Date(o.date); return `<a class="event-card" href="event.html#${o.id}" style="text-decoration:none;color:inherit"><div class="img"><img src="${o.img}" alt="" loading="lazy"><div class="date"><span>${od.toLocaleDateString("en-IN", { month: "short" })}</span><b>${od.getDate()}</b></div></div><div class="b"><div class="row" style="gap:6px"><span class="pill violet">${esc(o.type)}</span><span class="pill green">Free</span></div><h3>${esc(o.title)}</h3><div class="meta"><span>${icon("clock")}${o.mins} min</span></div></div></a>`; }).join("")}</div></section>` : ""}`;
+    SR.tickCountdowns && SR.tickCountdowns();
+    const jb = $("#ev-jump"); if (jb) jb.addEventListener("click", () => { const r2 = $("#ev-reg"); if (r2) r2.click(); else $("#ev-card").scrollIntoView({ behavior: "smooth", block: "center" }); });
+    const r = $("#ev-reg"); if (r) r.addEventListener("click", () => SR.registerEvent(e, render));
+    $("#ev-share").addEventListener("click", () => { const u = location.href; (navigator.clipboard ? navigator.clipboard.writeText(u) : Promise.reject()).then(() => SR.toast("Link copied"), () => SR.toast(u)); });
+  };
+  addEventListener("hashchange", () => { render(); scrollTo(0, 0); });
+  render();
+})();
+</script>
+</body>
+</html>

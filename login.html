@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Log In · SkillRadius</title>
+<meta name="description" content="Log in to SkillRadius to continue your courses, live batches and certifications.">
+<meta name="sr-page" content="login">
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<main class="auth">
+  <aside class="auth-art" aria-hidden="true"><img src="assets/img/art-auth-art.webp" alt=""></aside>
+  <section class="auth-panel">
+    <div class="auth-bar"><a class="back" href="index.html"><span data-i="arrowl"></span>Back to home</a><a href="help.html">Need help?</a></div>
+    <div class="auth-card">
+      <div class="top">
+        <a class="brand" href="index.html" aria-label="SkillRadius home"><img src="assets/img/logo-mark.svg" alt="" width="52" height="52"><img src="assets/img/logo-word.svg" alt="SkillRadius" width="112" height="18" style="filter:none"></a>
+        <h1>Log In</h1>
+        <p class="sub">Welcome back! Pick up right where you left off.</p>
+      </div>
+      <div id="notice"></div>
+      <div class="seg" role="tablist" aria-label="How do you want to log in?">
+        <button type="button" role="tab" aria-selected="true" data-mode="password"><span data-i="lock"></span>Password</button>
+        <button type="button" role="tab" aria-selected="false" data-mode="code"><span data-i="mail"></span>Email code</button>
+      </div>
+      <form id="form" novalidate>
+        <div class="field"><label for="email">Email<span class="req">*</span></label><div class="ic-in"><span class="lead" data-i="mail"></span><input id="email" type="email" placeholder="ex: john.doe@gmail.com" autocomplete="email"></div></div>
+        <div class="field" id="pw-field"><div class="lbl-row"><label for="password">Password<span class="req">*</span></label><a href="forgot-password.html">Forgot password?</a></div><div class="pw ic-in"><span class="lead" data-i="lock"></span><input id="password" type="password" placeholder="Enter your password" autocomplete="current-password"><button type="button" aria-label="Show password"></button></div><span class="caps" hidden><span data-i="warn"></span>Caps Lock is on</span></div>
+        <label class="checkbox" id="remember-row"><input type="checkbox" id="remember" checked>Keep me signed in</label>
+        <p class="code-note" id="code-note" hidden><span data-i="info"></span>We'll email you a 6-digit code. No password needed.</p>
+        <div id="form-error"></div>
+        <button class="btn lg block" type="submit" id="submit">Log In</button>
+      </form>
+      <div class="demo">
+        <span class="or">Explore with a demo account</span>
+        <div class="demo-chips">
+          <button type="button" id="use-demo" data-demo="learner"><span data-i="user"></span>Learner</button>
+          <button type="button" data-demo="admin"><span data-i="shield"></span>Admin</button>
+          <button type="button" data-demo="trainer"><span data-i="training"></span>Trainer</button>
+        </div>
+      </div>
+      <p class="alt">Don’t have an account? <a href="signup.html">Sign up free</a></p>
+    </div>
+    <p class="auth-foot"><a href="terms.html">Terms</a><span>·</span><a href="privacy.html">Privacy</a><span>·</span><a href="cookie-policy.html">Cookies</a></p>
+  </section>
+</main>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/ui.js"></script>
+<script src="assets/js/fx.js"></script>
+<script src="assets/js/pages/auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Scholarships · SkillRadius</title>
+<meta name="description" content="Scholarships and discounts for students, women in tech, defence families and top performers.">
+<meta name="sr-page" content="scholarships">
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta property="og:title" content="Scholarships · SkillRadius">
+<meta property="og:description" content="Scholarships and discounts for students, women in tech, defence families and top performers.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<header id="site-header"></header>
+<main>
+  <section class="page-hero band center"><div class="wrap inner"><span class="eyebrow">Scholarships & discounts</span><h1>Money shouldn&rsquo;t stop you from <span class='hl'>learning</span></h1><p>We set aside seats every month for students, women in tech, defence families and top performers.</p></div></section>
+  <section class="band section tight"><div class="wrap grid-2" id="programs"></div></section>
+  <section class="band section alt" id="apply">
+    <div class="wrap split" style="align-items:start">
+      <div>
+        <span class="eyebrow">Apply</span>
+        <h2 style="font-size:clamp(26px,3.4vw,34px);font-weight:600;margin:10px 0 12px">Apply in 5 minutes</h2>
+        <p class="muted">We review applications every week. If you're selected, you'll get a personal discount code by email that works at checkout.</p>
+        <ul class="check-list green" style="margin-top:18px"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Decision within 7 days</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Works with no-cost EMI</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Valid on courses, trainings and certifications</li></ul>
+      </div>
+      <form class="card stack" id="form" data-lead="scholarship">
+        <div class="form-grid">
+          <div class="field full"><label for="s-type">Scholarship <span class="req">*</span></label><select id="s-type" name="program" data-req><option value="">Choose a scholarship</option></select></div>
+          <div class="field"><label for="s-name">Full name <span class="req">*</span></label><input id="s-name" name="name" data-req autocomplete="name"></div>
+          <div class="field"><label for="s-email">Email <span class="req">*</span></label><input id="s-email" name="email" type="email" data-req data-kind="email" autocomplete="email"></div>
+          <div class="field"><label for="s-phone">Phone <span class="req">*</span></label><input id="s-phone" name="phone" data-req data-kind="phone" inputmode="numeric"></div>
+          <div class="field"><label for="s-org">College / organisation</label><input id="s-org" name="organisation"></div>
+          <div class="field full"><label for="s-goal">Which program do you want to take? <span class="req">*</span></label><select id="s-goal" name="target" data-req><option value="">Choose a program</option></select></div>
+          <div class="field full"><label for="s-why">Why do you want this scholarship? <span class="req">*</span></label><textarea id="s-why" name="why" data-req data-msg="Tell us a little about your goals."></textarea></div>
+          <div class="field full"><label for="s-id">Proof of eligibility <span class="tiny muted">(student or service ID, PDF or image)</span></label><input id="s-id" name="proof" type="file" accept="image/*,.pdf"></div>
+        </div>
+        <button class="btn lg" type="submit" style="justify-self:start">Submit application</button>
+      </form>
+    </div>
+  </section>
+  <section class="band section tight"><div class="wrap narrow"><div class="sec-head"><h2 style="font-size:28px">Scholarship FAQ</h2></div><div class="acc faq" id="faq"></div></div></section>
+</main>
+<footer id="site-footer"></footer>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/ui.js"></script>
+<script src="assets/js/fx.js"></script>
+<script>
+(function(){
+  const { $, icon, esc } = SR;
+  $("#programs").innerHTML = SR.scholarships.map((s, i) => { const m = s.amount.match(/(\d+)%/), pct = m ? m[1] : ""; return `<article class="sc-card" style="--i:${i}">
+    <div class="top"><span class="ic">${icon(s.icon)}</span><div class="amt"><b>${pct ? pct + "<i>%</i>" : esc(s.amount)}</b><span>${/Up to/.test(s.amount) ? "up to · off" : "off"}</span></div></div>
+    <h3>${esc(s.title)}</h3>
+    <dl><div><dt>Who</dt><dd>${esc(s.who)}</dd></div><div><dt>How</dt><dd>${esc(s.how)}</dd></div></dl>
+    <div class="ft"><span>${icon("users")}Seats: <b>${esc(s.seats)}</b></span><a class="btn sm" href="#apply" data-pick="${s.id}">Apply ${icon("arrow")}</a></div></article>`; }).join("");
+  $("#s-type").innerHTML += SR.scholarships.map(s => `<option value="${s.id}">${esc(s.title)} (${esc(s.amount)})</option>`).join("");
+  $("#s-goal").innerHTML += [...SR.paths.map(p => `Learning path: ${p.title}`), ...SR.certifications.map(c => `Certification: ${c.title}`), ...SR.openTrainings().map(t => `Training: ${t.title}`)].map(x => `<option>${esc(x)}</option>`).join("");
+  document.querySelectorAll("[data-pick]").forEach(a => a.addEventListener("click", e => { e.preventDefault(); $("#s-type").value = a.dataset.pick; $("#apply").scrollIntoView({ behavior: "smooth" }); }));
+  SR.leadForm($("#form"), { type: "scholarship", title: "Application received", message: "We'll email you a decision within 7 days." });
+  $("#faq").innerHTML = SR.faqHTML([["Can I combine scholarships?", "No. You can use one scholarship per order, but it works together with no-cost EMI."], ["How long is my code valid?", "60 days from the day we email it."], ["Can I apply again if I'm not selected?", "Yes, after 30 days. Merit scholarship tests run every month."]]);
+})();
+</script>
+</body>
+</html>

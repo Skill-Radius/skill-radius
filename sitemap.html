@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sitemap · SkillRadius</title>
+<meta name="description" content="Sitemap at SkillRadius">
+<meta name="sr-page" content="sitemap">
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta property="og:title" content="Sitemap · SkillRadius">
+<meta property="og:description" content="Sitemap">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<header id="site-header"></header>
+<main>
+  <section class="page-hero band center"><div class="wrap inner"><span class="eyebrow">Every page</span><h1>Find your way <span class="hl">around SkillRadius</span></h1><p>Every page on SkillRadius in one place.</p></div></section>
+  <section class="band section tight" style="padding-top:0;margin-top:-26px;position:relative;z-index:1"><div class="wrap"><label class="sm-search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><span class="sr-only">Filter pages</span><input id="sm-q" type="search" placeholder="Filter pages, e.g. refund"><span id="sm-n"></span></label><div class="sitemap"><section><h2>Learn</h2><ul><li><a href="index.html">Home</a></li><li><a href="courses.html">Courses</a></li><li><a href="trainings.html">Live trainings</a></li><li><a href="certifications.html">Certifications</a></li><li><a href="paths.html">Learning paths</a></li><li><a href="events.html">Free events</a></li><li><a href="scholarships.html">Scholarships</a></li><li><a href="verify.html">Verify a certificate</a></li></ul></section><section><h2>Company</h2><ul><li><a href="about.html">About</a></li><li><a href="business.html">For Business</a></li><li><a href="placements.html">Placements</a></li><li><a href="instructors.html">Our trainers</a></li><li><a href="teach.html">Teach with us</a></li><li><a href="careers.html">Careers</a></li><li><a href="press.html">Press</a></li><li><a href="blog.html">Blog</a></li></ul></section><section><h2>Support</h2><ul><li><a href="help.html">Help center</a></li><li><a href="support.html">Support tickets</a></li><li><a href="contact.html">Contact us</a></li><li><a href="refer.html">Refer & earn</a></li></ul></section><section><h2>Account</h2><ul><li><a href="login.html">Log in</a></li><li><a href="signup.html">Sign up</a></li><li><a href="forgot-password.html">Forgot password</a></li><li><a href="dashboard.html">My Learning</a></li><li><a href="dashboard.html#orders">Orders & invoices</a></li><li><a href="profile.html">Profile</a></li></ul></section><section id="legal"><h2>Legal</h2><ul><li><a href="privacy.html">Privacy Policy</a></li><li><a href="terms.html">Terms & Conditions</a></li><li><a href="refund-policy.html">Refund Policy</a></li><li><a href="delivery-policy.html">Delivery Policy</a></li><li><a href="grievance.html">Grievance Redressal</a></li><li><a href="accessibility.html">Accessibility</a></li><li><a href="cookie-policy.html">Cookie Policy</a></li></ul></section><section><h2>Staff</h2><ul><li><a href="admin.html">Admin panel</a></li><li><a href="trainer.html">Trainer panel</a></li></ul></section><section><h2>Catalog</h2><ul id="catalog"></ul></section></div></div></section>
+</main>
+<footer id="site-footer"></footer>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/ui.js"></script>
+<script src="assets/js/fx.js"></script>
+<script>
+SR.$("#catalog").innerHTML = [...SR.publicCourses().map(c => [c.title, "course.html#" + c.id]), ...SR.openTrainings().map(t => [t.title, "training.html#" + t.id]), ...SR.publicCerts().map(c => [c.title, "certification.html#" + c.id]), ...SR.paths.map(p => [p.title + " path", "path.html#" + p.id])].map(([t, h]) => `<li><a href="${h}">${SR.esc(t)}</a></li>`).join("");
+</script>
+<script>
+(function () {
+  const secs = [...document.querySelectorAll(".sitemap > section")], q = document.getElementById("sm-q"), n = document.getElementById("sm-n");
+  secs.forEach(sec => sec.querySelector("h2").insertAdjacentHTML("beforeend", `<span>${sec.querySelectorAll("li").length}</span>`));
+  const run = () => { const v = q.value.trim().toLowerCase(); let c = 0;
+    secs.forEach(sec => { let k = 0; sec.querySelectorAll("li").forEach(li => { const on = !v || li.textContent.toLowerCase().includes(v); li.hidden = !on; if (on) k++; }); sec.hidden = !k; c += k; });
+    n.textContent = c + " pages"; };
+  q.addEventListener("input", run); run();
+})();
+</script>
+</body>
+</html>

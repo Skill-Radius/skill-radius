@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Press & Media · SkillRadius</title>
+<meta name="description" content="SkillRadius press releases, brand assets and media contacts.">
+<meta name="sr-page" content="press">
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta property="og:title" content="Press & Media · SkillRadius">
+<meta property="og:description" content="SkillRadius press releases, brand assets and media contacts.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<header id="site-header"></header>
+<main>
+  <section class="page-hero band center"><div class="wrap inner"><span class="eyebrow">Press & media</span><h1>News, brand assets and press contacts</h1><p>Writing about SkillRadius? Here's everything you need.</p></div></section>
+  <section class="band section tight in-stats-sec"><div class="wrap"><div class="in-stats">
+    <div><b>2022</b><span>Founded in Bengaluru</span></div><div><b>50,000+</b><span>Professionals certified</span></div><div><b>120+</b><span>Trainers &amp; mentors</span></div><div><b>180+</b><span>Hiring partners</span></div>
+  </div></div></section>
+  <section class="band section tight">
+    <div class="wrap pr-grid">
+      <div>
+        <div class="in-bar"><h2>Press releases</h2><span class="bl-count" id="rel-n"></span></div>
+        <ol class="pr-tl" id="releases"></ol>
+      </div>
+      <aside class="pr-side">
+        <div class="pr-contact">
+          <span class="k">Press contact</span><h3>Talk to our media team</h3><p>Interviews, data requests and founder comments. We reply within 4 working hours.</p>
+          <a href="mailto:press@skillradius.in">${MAIL}press@skillradius.in</a><a href="tel:+919876543210">${PHONE}+91 98765 43210</a>
+        </div>
+        <div class="pr-bp"><div class="hd"><b>About SkillRadius</b><button class="btn ghost sm" type="button" id="copy-bp">${COPY}Copy</button></div><p id="boilerplate">SkillRadius is a Bengaluru-based online learning platform offering self-paced courses, live trainer-led batches and proctored professional certifications in development, data, design and AI. More than 50,000 professionals have been certified on SkillRadius.</p></div>
+      </aside>
+    </div>
+  </section>
+  <section class="band section tight pr-brand-sec">
+    <div class="wrap">
+      <div class="in-bar"><h2>Brand assets</h2><a class="btn sm" href="assets/img/logo-full.svg" download="skillradius-logo.svg">Download logo pack</a></div>
+      <div class="pr-logos">
+        <figure class="pr-logo light"><div class="art" id="logo1"></div><figcaption><span><b>Primary logo</b>Use on white or light backgrounds</span><span class="dl"><a href="assets/img/logo-full.svg" download="skillradius-logo.svg">SVG</a><a href="assets/img/logo-full.png" download="skillradius-logo.png">PNG</a></span></figcaption></figure>
+        <figure class="pr-logo dark"><div class="art" id="logo2"></div><figcaption><span><b>Reversed logo</b>Use on SkillRadius blue or dark photos</span><span class="dl"><a href="assets/img/logo-full.svg" download="skillradius-logo.svg">SVG</a></span></figcaption></figure>
+        <figure class="pr-logo mark"><div class="art"><img src="assets/img/logo-mark.svg" alt="SkillRadius mark"></div><figcaption><span><b>Mark</b>App icons and small spaces</span><span class="dl"><a href="assets/img/logo-mark.svg" download="skillradius-mark.svg">SVG</a><a href="assets/img/logo-mark.png" download="skillradius-mark.png">PNG</a></span></figcaption></figure>
+      </div>
+      <h3 class="pr-sub">Colours <span>Click a colour to copy its hex code</span></h3>
+      <div class="pr-sw">
+        <button type="button" data-hex="#1E3FBF" style="--c:#1e3fbf"><i></i><b>Radius Blue</b><span>#1E3FBF</span></button>
+        <button type="button" data-hex="#3C59C8" style="--c:#3c59c8"><i></i><b>Primary</b><span>#3C59C8</span></button>
+        <button type="button" data-hex="#8EA2FF" style="--c:#8ea2ff"><i></i><b>Glow</b><span>#8EA2FF</span></button>
+        <button type="button" data-hex="#EEF1FC" style="--c:#eef1fc"><i></i><b>Mist</b><span>#EEF1FC</span></button>
+        <button type="button" data-hex="#0F1424" style="--c:#0f1424"><i></i><b>Ink</b><span>#0F1424</span></button>
+      </div>
+      <h3 class="pr-sub">Using the logo</h3>
+      <div class="pr-rules">
+        <div class="do"><b>${OK}Do</b><ul><li>Keep clear space equal to the mark's height around the logo</li><li>Use the reversed logo on blue or dark backgrounds</li><li>Write the name as one word: SkillRadius</li></ul></div>
+        <div class="dont"><b>${NO}Don't</b><ul><li>Stretch, rotate or recolour the logo</li><li>Place it on busy photos without a solid panel</li><li>Write the name as "Skill Radius" or "Skillradius"</li></ul></div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer id="site-footer"></footer>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/ui.js"></script>
+<script src="assets/js/fx.js"></script>
+<script>
+(function(){
+  const { $, esc } = SR;
+  document.querySelectorAll(".pr-contact a, #copy-bp, .pr-rules b").forEach(el => { el.innerHTML = el.innerHTML.replace("${MAIL}", SR.icon("mail")).replace("${PHONE}", SR.icon("phone")).replace("${COPY}", SR.icon("copy")).replace("${OK}", SR.icon("check")).replace("${NO}", SR.icon("x")); });
+  const rel = [...SR.pressReleases].sort((a, b) => b.date - a.date);
+  $("#rel-n").textContent = rel.length + " announcements";
+  $("#releases").innerHTML = rel.map((r, i) => { const d = new Date(r.date); return `<li style="--i:${i}"><div class="dt"><b>${d.getDate()}</b><span>${d.toLocaleDateString("en-IN", { month: "short", year: "numeric" })}</span></div><article><span class="k">${i === 0 ? "Latest · " : ""}Announcement</span><h3>${esc(r.title)}</h3><p>${esc(r.summary)}</p><span class="loc">Bengaluru, India</span></article></li>`; }).join("");
+  $("#logo1").innerHTML = `<span class="brand" style="font-size:30px">${SR.logo(46)}<span>SkillRadius</span></span>`;
+  $("#logo2").innerHTML = `<span class="brand" style="font-size:30px;color:#fff">${SR.logo(46).replace(/#1e3fbf/g, "#fff").replace("#e3e8ff", "#3c59c8")}<span>SkillRadius</span></span>`;
+  $("#copy-bp").addEventListener("click", () => { const t = $("#boilerplate").textContent; (navigator.clipboard ? navigator.clipboard.writeText(t) : Promise.reject()).then(() => SR.toast("Boilerplate copied"), () => SR.toast("Select and copy the text above")); });
+  document.querySelectorAll("[data-hex]").forEach(b => b.addEventListener("click", () => { const h = b.dataset.hex; (navigator.clipboard ? navigator.clipboard.writeText(h) : Promise.reject()).then(() => SR.toast(h + " copied"), () => SR.toast(h)); }));
+})();
+</script>
+</body>
+</html>

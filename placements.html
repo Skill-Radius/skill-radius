@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Placements & Outcomes · SkillRadius</title>
+<meta name="description" content="Placement outcomes, hiring partners and career support at SkillRadius.">
+<meta name="sr-page" content="placements">
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta property="og:title" content="Placements & Outcomes · SkillRadius">
+<meta property="og:description" content="Placement outcomes, hiring partners and career support at SkillRadius.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<header id="site-header"></header>
+<main>
+  <section class="page-hero band center"><div class="wrap inner"><span class="eyebrow">Placements</span><h1>Real skills. <span class="hl">Real careers.</span></h1><p>Every learning path includes placement support: resume reviews, mock interviews and referrals to our hiring partners.</p></div></section>
+  <section class="band section tight in-stats-sec"><div class="wrap"><div class="in-stats" id="stats"></div></div></section>
+  <section class="band section tight alt"><div class="wrap stack" style="gap:24px"><p class="center muted">Our learners now work at</p><ul class="logo-row" id="logos"></ul></div></section>
+  <section class="band section">
+    <div class="wrap split" style="align-items:start">
+      <div>
+        <span class="eyebrow">Outcomes by path</span>
+        <h2 style="font-size:clamp(26px,3.4vw,34px);font-weight:600;margin:10px 0 8px">Learners placed within 6 months of finishing</h2>
+        <p class="muted" style="margin-bottom:22px">Share of learners who completed a learning path and reported a new role or promotion within 6 months.</p>
+        <div class="hbars" id="bars" role="img" aria-label="Placement rate by learning path"></div>
+      </div>
+      <div class="stack">
+        <span class="eyebrow">Placement support</span>
+        <div class="grid-2" id="support"></div>
+      </div>
+    </div>
+  </section>
+  <section class="band section alt">
+    <div class="wrap">
+      <div class="sec-head"><span class="eyebrow">How placement works</span><h2>From certificate to offer letter</h2></div>
+      <div class="steps">
+        <div class="step"><span class="n">1</span><h3>Profile review</h3><p>A career coach reviews your resume, LinkedIn and portfolio.</p></div>
+        <div class="step"><span class="n">2</span><h3>Mock interviews</h3><p>Two technical and one HR mock interview with feedback.</p></div>
+        <div class="step"><span class="n">3</span><h3>Referrals</h3><p>We share your profile with hiring partners that match.</p></div>
+        <div class="step"><span class="n">4</span><h3>Offer support</h3><p>Help comparing offers and negotiating salary.</p></div>
+      </div>
+    </div>
+  </section>
+  <section class="band section">
+    <div class="wrap"><div class="sec-head"><span class="eyebrow">Success stories</span><h2>Learners who made the switch</h2></div><div class="grid-3" id="stories"></div></div>
+  </section>
+  <section class="band section tight"><div class="wrap"><div class="sr-band">
+    <span class="sh a" aria-hidden="true"></span><span class="sh b" aria-hidden="true"></span><span class="sh c" aria-hidden="true"></span>
+    <div class="t"><span class="k">Your next role</span><h2>Start your path to a new role</h2><p>Pick a learning path built around the job you want. Placement support is included in every path.</p><ul><li>Resume &amp; mock interviews</li><li>Referrals to 180+ partners</li><li>No-cost EMI</li></ul></div>
+    <div class="sr-band-cta"><a class="btn" href="paths.html">Explore learning paths</a><a class="btn ghost" href="contact.html">Talk to a counsellor</a></div>
+  </div></div></section>
+</main>
+<footer id="site-footer"></footer>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/ui.js"></script>
+<script src="assets/js/fx.js"></script>
+<script>
+(function(){
+  const { $, icon, esc } = SR, s = SR.placementStats;
+  $("#stats").innerHTML = `<div><b>${s.placed}</b><span>Learners placed</span></div><div><b>${s.avgHike}</b><span>Average salary hike</span></div><div><b>${s.highest}</b><span>Highest package</span></div><div><b>${s.partners}</b><span>Hiring partners</span></div>`;
+  $("#logos").innerHTML = SR.partners.map(p => `<li>${esc(p)}</li>`).join("");
+  $("#bars").innerHTML = s.byPath.map(([n, v]) => `<div class="hbar"><span>${n}</span><span class="track"><span style="width:${v}%"></span></span><b>${v}%</b></div>`).join("");
+  $("#support").innerHTML = [["file", "Resume & LinkedIn review"], ["users", "Mock interviews"], ["share", "Hiring partner referrals"], ["compass", "1:1 career counselling"], ["bell", "Weekly job alerts"], ["heart", "Alumni network"]].map(([i, t]) => `<div class="feature" style="padding:16px"><span class="ic" style="width:40px;height:40px">${icon(i, 'width="20" height="20"')}</span><b>${t}</b></div>`).join("");
+  $("#stories").innerHTML = SR.moreStories.map(s => `<figure class="story"><div class="tags"><span class="pill blue">${esc(s.path)}</span><span class="pill green">${esc(s.hike)}</span></div><blockquote>“${esc(s.quote)}”</blockquote><figcaption class="who"><span class="avatar-i" style="background:${s.color}">${SR.initials(s.name)}</span><div><b>${esc(s.name)}</b><span>${esc(s.role)} · before: ${esc(s.before)}</span></div></figcaption></figure>`).join("");
+})();
+</script>
+</body>
+</html>

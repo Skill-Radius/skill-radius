@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sign Up · SkillRadius</title>
+<meta name="description" content="Create a free SkillRadius account to enrol in courses, live batches and certifications.">
+<meta name="sr-page" content="signup">
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<main class="auth">
+  <aside class="auth-art" aria-hidden="true"><img src="assets/img/art-auth-art.webp" alt=""></aside>
+  <section class="auth-panel">
+    <div class="auth-bar"><a class="back" href="index.html"><span data-i="arrowl"></span>Back to home</a><a href="help.html">Need help?</a></div>
+    <div class="auth-card">
+      <div class="top">
+        <a class="brand" href="index.html" aria-label="SkillRadius home"><img src="assets/img/logo-mark.svg" alt="" width="52" height="52"><img src="assets/img/logo-word.svg" alt="SkillRadius" width="112" height="18" style="filter:none"></a>
+        <h1>Sign Up</h1>
+        <p class="sub">Free to join. Pay only for what you enrol in.</p>
+      </div>
+      <ol class="auth-steps" aria-label="Sign-up steps">
+        <li class="on" id="st-1"><b>1</b><span>Your details</span></li>
+        <li id="st-2"><b>2</b><span>Secure your account</span></li>
+      </ol>
+      <form id="form" novalidate>
+        <div class="pane" id="pane-1">
+          <div class="form-grid">
+            <div class="field"><label for="first">First Name<span class="req">*</span></label><div class="ic-in"><span class="lead" data-i="user"></span><input id="first" placeholder="ex: John" autocomplete="given-name"></div></div>
+            <div class="field"><label for="last">Last Name<span class="req">*</span></label><div class="ic-in"><span class="lead" data-i="user"></span><input id="last" placeholder="ex: Doe" autocomplete="family-name"></div></div>
+          </div>
+          <div class="field"><label for="email">Email<span class="req">*</span></label><div class="ic-in"><span class="lead" data-i="mail"></span><input id="email" type="email" placeholder="ex: john.doe@gmail.com" autocomplete="email"></div><span class="hint">We'll send a code to verify it.</span></div>
+          <div class="field"><label for="phone">Phone number<span class="req">*</span></label><div class="ic-in pre"><span class="lead pre-t">+91</span><input id="phone" type="tel" inputmode="numeric" maxlength="11" placeholder="98765 43210" autocomplete="tel-national"></div><span class="hint">For batch reminders and exam updates.</span></div>
+          <button class="btn lg block" type="button" id="next">Continue</button>
+        </div>
+        <div class="pane" id="pane-2" hidden>
+          <div class="field"><label for="password">Create password<span class="req">*</span></label><div class="pw ic-in"><span class="lead" data-i="lock"></span><input id="password" type="password" placeholder="At least 8 characters" autocomplete="new-password"><button type="button" aria-label="Show password"></button></div><div class="pw-meter" id="meter"><i></i><i></i><i></i><i></i></div>
+            <ul class="pw-rules" id="rules"><li data-r="len">8+ characters</li><li data-r="num">A number</li><li data-r="sym">A symbol like @ or #</li><li data-r="case">Upper &amp; lower case</li></ul><span class="hint" id="meter-text" hidden></span><span class="caps" hidden><span data-i="warn"></span>Caps Lock is on</span></div>
+          <div class="field"><label for="confirm">Confirm password<span class="req">*</span></label><div class="pw ic-in"><span class="lead" data-i="lock"></span><input id="confirm" type="password" placeholder="Type it again" autocomplete="new-password"><button type="button" aria-label="Show password"></button></div><span class="match" id="match" hidden></span></div>
+          <label class="checkbox"><input type="checkbox" id="agree"><span>I agree to the <a class="link" href="terms.html">Terms</a> and <a class="link" href="privacy.html">Privacy Policy</a></span></label>
+          <div id="form-error"></div>
+          <button class="btn lg block" type="submit" id="submit">Create account</button>
+          <button class="edit-back" type="button" id="back"><span data-i="arrowl"></span>Edit my details</button>
+        </div>
+      </form>
+      <p class="alt">Already have an account? <a href="login.html">Log in</a></p>
+    </div>
+    <p class="auth-foot"><a href="terms.html">Terms</a><span>·</span><a href="privacy.html">Privacy</a><span>·</span><a href="cookie-policy.html">Cookies</a></p>
+  </section>
+</main>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/ui.js"></script>
+<script src="assets/js/fx.js"></script>
+<script src="assets/js/pages/auth.js"></script>
+</body>
+</html>

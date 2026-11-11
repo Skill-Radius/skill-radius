@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Verify a Certificate · SkillRadius</title>
+<meta name="description" content="Verify a SkillRadius certificate by its ID to confirm who earned it and whether it is valid.">
+<meta name="sr-page" content="verify">
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/css/styles.css">
+<style>
+  .v-card { max-width: 640px; margin: -40px auto 0; position: relative; box-shadow: var(--shadow); }
+  .v-card form { display: flex; gap: 10px; }
+  .v-card input { flex: 1; min-width: 0; text-transform: uppercase; font-size: 16px; }
+  .result { margin-top: 20px; border-radius: 14px; padding: 18px; display: grid; gap: 12px; }
+  .result.ok { background: var(--success-soft); }
+  .result.bad { background: var(--danger-soft); color: var(--danger-ink); }
+  .result .head { display: flex; gap: 10px; align-items: center; font-weight: 700; font-size: 17px; }
+  .result .head svg { width: 24px; height: 24px; }
+  .result dl { margin: 0; display: grid; grid-template-columns: auto minmax(0,1fr); gap: 6px 16px; font-size: 15px; }
+  .result dt { color: var(--ink-2); }
+  .result dd { margin: 0; font-weight: 600; overflow-wrap: anywhere; }
+  .v-card { max-width: 720px; border-radius: 26px; padding: 22px; border-color: var(--primary-line); box-shadow: 0 40px 80px -50px rgba(26, 62, 190, .6); }
+  .v-card form { padding: 6px; border: 1px solid var(--primary-line); border-radius: 99px; background: #f8f9ff; }
+  .v-card form:focus-within { border-color: var(--primary); box-shadow: 0 0 0 4px rgba(60, 90, 199, .12); }
+  .v-card input { border: 0; background: transparent; height: 50px; padding: 0 18px; letter-spacing: .04em; font-weight: 500; box-shadow: none !important; }
+  .v-card form .btn { height: 50px; padding: 0 28px; border-radius: 99px; }
+  @media (max-width: 640px) { .v-card form { flex-direction: column; border-radius: 20px; } }
+</style>
+</head>
+<body>
+<header id="site-header"></header>
+<main>
+  <section class="page-hero band center" style="padding-bottom:80px"><div class="wrap inner"><span class="eyebrow">For employers & recruiters</span><h1>Verify a <span class="hl">SkillRadius</span> certificate</h1><p>Enter the certificate ID printed on the certificate to confirm who earned it, what for, and whether it's still valid.</p></div></section>
+  <section class="band" style="padding-bottom:72px">
+    <div class="card v-card">
+      <form id="form" novalidate>
+        <label class="sr-only" for="cert-id">Certificate ID</label>
+        <input class="input" id="cert-id" placeholder="e.g. CERT-SR-PD-2026-001" autocomplete="off">
+        <button class="btn" type="submit">Verify</button>
+      </form>
+      <p class="tiny muted" style="margin-top:10px">Try a sample: <button class="link" type="button" data-try="CERT-SR-PD-2026-001" style="border:0;background:none;padding:0;font-size:inherit">CERT-SR-PD-2026-001</button> · <button class="link" type="button" data-try="CERT-SR-RJS-2026-047" style="border:0;background:none;padding:0;font-size:inherit">CERT-SR-RJS-2026-047</button></p>
+      <div id="result" aria-live="polite"></div>
+    </div>
+  </section>
+  <section class="band section tight alt">
+    <div class="wrap vr-info">
+      <div><span class="ic">${I1}</span><h3>Where's the ID?</h3><p>At the top right of every SkillRadius certificate, and in the footer next to the signatures. It starts with CERT-SR.</p></div>
+      <div><span class="ic">${I2}</span><h3>What does "valid" mean?</h3><p>Professional certifications are valid for 2–3 years from the exam date. Course certificates of completion don't expire.</p></div>
+      <div><span class="ic">${I3}</span><h3>Something looks wrong?</h3><p>Email <a href="mailto:support@skillradius.in">support@skillradius.in</a> with the ID and we'll confirm the record within one working day.</p></div>
+    </div>
+  </section>
+</main>
+<footer id="site-footer"></footer>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/ui.js"></script>
+<script src="assets/js/fx.js"></script>
+<script>
+(function () {
+  const { $, esc, icon, fmtDate } = SR;
+  // Look up the shared registry plus any certificates earned in this browser
+  function find(id) {
+    if (SR.registry[id]) return SR.registry[id];
+    const mine = (SR.store.get("certificates", []) || []).find(c => c.id === id), u = SR.auth.user();
+    if (mine && u) return { name: u.firstName + " " + (u.lastName || ""), program: mine.title, issued: mine.issued, valid: mine.validYears ? new Date(new Date(mine.issued).setFullYear(new Date(mine.issued).getFullYear() + mine.validYears)) : null, score: mine.score };
+    return null;
+  }
+  function verify(raw) {
+    const id = raw.trim().toUpperCase(), out = $("#result");
+    $("#cert-id").value = id;
+    if (!id) { out.innerHTML = `<div class="result bad"><div class="head">${icon("warn")}Enter a certificate ID to check.</div></div>`; return; }
+    // → Replace with GET /api/certificates/:id
+    const r = find(id);
+    const revoked = (SR.store.get("revoked", []) || []).includes(id);
+    const expired = r && (revoked || (r.valid && new Date(r.valid) < new Date()));
+    const now = new Date().toLocaleString("en-IN", { day: "numeric", month: "short", year: "numeric", hour: "numeric", minute: "2-digit" });
+    const st = revoked ? ["bad", "Certificate revoked", "This certificate was withdrawn by SkillRadius and is no longer valid."] : expired ? ["warn", "Certificate expired", "This certificate was genuine but its validity period has ended."] : ["ok", "Verified certificate", "This certificate is genuine and currently valid."];
+    out.innerHTML = r ? `
+      <article class="vr-card ${st[0]}">
+        <header><span class="seal">${icon(st[0] === "ok" ? "shield" : "warn")}</span><div><b>${st[1]}</b><span>${st[2]}</span></div><img src="assets/img/logo-mark.svg" alt=""></header>
+        <div class="who"><small>Awarded to</small><h2>${esc(r.name)}</h2><p>${esc(r.program)}</p></div>
+        <dl><div><dt>Certificate ID</dt><dd>${esc(id)}</dd></div><div><dt>Result</dt><dd>${esc(r.score)}</dd></div><div><dt>Issued</dt><dd>${fmtDate(r.issued)}</dd></div><div><dt>Valid until</dt><dd>${r.valid ? fmtDate(r.valid) : "Does not expire"}</dd></div></dl>
+        <footer><span>Checked ${now} against SkillRadius records</span><div><button class="btn ghost sm" type="button" id="vr-copy">${icon("copy")}Copy link</button><a class="btn sm" href="certificate.html#${encodeURIComponent(id)}">View certificate ${icon("arrow")}</a></div></footer>
+      </article>` : `<div class="vr-none">${icon("x")}<div><b>No certificate found for ${esc(id)}</b><span>Check the ID for typos. IDs look like CERT-SR-PD-2026-001. Still stuck? Email support@skillradius.in.</span></div></div>`;
+    const c = $("#vr-copy"); if (c) c.addEventListener("click", () => { const u = location.href.split("#")[0] + "#" + encodeURIComponent(id); (navigator.clipboard ? navigator.clipboard.writeText(u) : Promise.reject()).then(() => SR.toast("Verification link copied"), () => SR.toast(u)); });
+  }
+  $("#form").addEventListener("submit", e => { e.preventDefault(); verify($("#cert-id").value); history.replaceState(null, "", "#" + encodeURIComponent($("#cert-id").value)); });
+  document.querySelectorAll("[data-try]").forEach(b => b.addEventListener("click", () => { verify(b.dataset.try); }));
+  const ic = ['search', 'shield', 'mail']; document.querySelectorAll('.vr-info .ic').forEach((el, i) => el.innerHTML = icon(ic[i]));
+  if (location.hash.length > 1) verify(decodeURIComponent(location.hash.slice(1)));
+})();
+</script>
+</body>
+</html>

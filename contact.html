@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Contact · SkillRadius</title>
+<meta name="description" content="Contact SkillRadius by phone, email or message. Our Bengaluru team replies within one working day.">
+<meta name="sr-page" content="contact">
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/css/styles.css">
+<style>
+  /* Figma frame "How to reach Us" (Footer pages) */
+  .ct { --k: min(1px, calc(100vw / 1728)); }
+  .ct-head { text-align: center; padding-top: max(40px, calc(125 * var(--k))); }
+  .ct-head h1 { font-size: var(--fs-hero); font-weight: 600; color: var(--heading); line-height: 1.22; }
+  .ct-main { width: min(1334px, 100% - 2 * clamp(16px, 13vw, 224px)); margin: max(40px, calc(104 * var(--k))) auto 0; display: grid; grid-template-columns: minmax(0, 556px) minmax(0, 637px); justify-content: space-between; gap: 40px; align-items: start; }
+  .ct-art { width: 100%; height: auto; aspect-ratio: 1; object-fit: contain; display: block; }
+  .ct-info { display: grid; gap: 0; }
+  .ct-info .lb { font-size: clamp(17px, 1.16vw, 20px); font-weight: 500; color: var(--heading); }
+  .ct-info .vl { font-size: clamp(19px, 1.39vw, 24px); font-weight: 500; color: #4e6cff; line-height: 1.2; margin-top: 8px; text-decoration: none; overflow-wrap: anywhere; display: inline-block; }
+  .ct-info .vl:hover { color: var(--primary); }
+  .ct-info .gap { height: clamp(28px, 3.5vw, 60px); }
+  .ct-info .hours { font-size: 13px; color: var(--ink-3); margin-top: 4px; }
+  .ct-info .copy { border: 0; background: none; color: var(--primary); font-size: 13px; font-weight: 500; padding: 0; margin-left: 10px; cursor: pointer; }
+  .ct-map { display: block; width: min(606px, 100%); aspect-ratio: 606 / 213; margin-top: 8px; border: 7px solid var(--primary); border-radius: 18px; overflow: hidden; }
+  .ct-map img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .ct-form { width: min(900px, 100% - 32px); margin: max(64px, calc(120 * var(--k))) auto 0; }
+  .ct-form h2 { font-size: clamp(22px, 1.62vw, 28px); font-weight: 600; color: var(--heading); text-align: center; }
+  .ct-form > p { text-align: center; color: var(--ink-2); margin-top: 6px; }
+  .ct-form form { margin-top: 24px; }
+  .sent { text-align: center; display: grid; gap: 12px; justify-items: center; padding: 30px 10px; }
+  .sent .tick { width: 64px; height: 64px; border-radius: 50%; background: var(--success-soft); color: var(--success); display: grid; place-items: center; }
+  .sent .tick svg { width: 32px; height: 32px; }
+  .ct .s-cta { position: relative; text-align: center; padding-top: max(110px, calc(220 * var(--k))); padding-bottom: max(80px, calc(140 * var(--k))); isolation: isolate; overflow: hidden; }
+  .ct .s-cta .arc { position: absolute; left: 50%; top: calc(max(110px, calc(220 * var(--k))) - max(60px, calc(132 * var(--k)))); width: max(1100px, calc(2092 * var(--k))); max-width: none; transform: translateX(-50%); z-index: -1; pointer-events: none; }
+  .ct .s-cta h2 { font-size: var(--fs-hero); font-weight: 600; line-height: 1.22; color: var(--heading); max-width: 830px; margin-inline: auto; text-wrap: wrap; }
+  .ct .s-cta p { color: var(--ink-2); max-width: 676px; margin: max(20px, calc(35 * var(--k))) auto 0; font-size: var(--fs-lead); line-height: 1.2; }
+  .ct .cta-btns { display: flex; justify-content: center; gap: 18px; margin-top: max(28px, calc(50 * var(--k))); }
+  .ct .cta-btns .btn { height: 45px; padding: 0 18px; border-radius: 15px; font-size: clamp(17px, 1.16vw, 20px); font-weight: 500; box-shadow: var(--glow); }
+  .ct .cta-btns .btn.ghost { background: transparent; border-width: 1px; }
+  .ct-faq { padding-top: max(64px, calc(120 * var(--k))); text-align: center; }
+  .ct-faq h2 { font-size: clamp(22px, 1.62vw, 28px); font-weight: 600; color: var(--heading); }
+  .ct-faq p { color: var(--ink-2); margin: 6px 0 24px; }
+  .ct-faq .acc { text-align: left; }
+  /* Department contacts */
+  .ct-teams { width: min(1100px, 100% - 32px); margin: max(64px, calc(120 * var(--k))) auto 0; text-align: center; }
+  .ct-teams h2 { font-size: clamp(22px, 1.8vw, 30px); font-weight: 600; color: var(--heading); }
+  .ct-teams > p { color: var(--ink-2); margin-top: 6px; }
+  .ct-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 28px; text-align: left; }
+  .ct-card { display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 4px 14px; align-items: start; padding: 18px; border: 1px solid var(--primary-line); border-radius: 16px; background: #fff; text-decoration: none; color: inherit; transition: border-color .2s, box-shadow .2s, transform .2s; }
+  .ct-card:hover { border-color: #b9c7ff; transform: translateY(-2px); box-shadow: 0 18px 36px -24px rgba(60, 90, 199, .5); }
+  .ct-card .ic { grid-row: span 3; width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; background: var(--pill-bg); color: var(--primary); } .ct-card .ic svg { width: 22px; height: 22px; }
+  .ct-card b { color: var(--heading); font-size: 16px; font-weight: 600; } .ct-card span { color: var(--ink-2); font-size: 14px; line-height: 1.45; } .ct-card em { font-style: normal; color: var(--primary); font-weight: 600; font-size: 14px; margin-top: 4px; }
+  @media (max-width: 900px) { .ct-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 560px) { .ct-grid { grid-template-columns: minmax(0, 1fr); } }
+  @media (max-width: 900px) { .ct-main { grid-template-columns: minmax(0, 1fr); } .ct-art { width: min(320px, 70%); margin: 0 auto; } }
+  @media (max-width: 640px) { .ct .cta-btns { flex-direction: column; align-items: center; } }
+</style>
+</head>
+<body>
+<header id="site-header"></header>
+<main class="ct">
+  <section class="ct-head"><h1>How to reach <span class="hl">Us</span></h1></section>
+  <section class="ct-main">
+    <img class="ct-art" src="assets/img/art-contact-mark.webp" alt="" width="556" height="556">
+    <div class="ct-info">
+      <span class="lb">Phone number</span><a class="vl" href="tel:+919876543210">+91 9876543210</a><span class="hours">Mon–Sat, 9:30 am – 7:00 pm IST</span>
+      <div class="gap"></div>
+      <span class="lb">Email</span><span><a class="vl" id="email-text" href="mailto:support@skillradius.in">support@skillradius.in</a><button class="copy" type="button" id="copy-email">Copy</button></span>
+      <div class="gap"></div>
+      <span class="lb">Location</span><a class="vl" href="https://www.google.com/maps/search/?api=1&query=Embassy+Golf+Links+Business+Park+Bengaluru" target="_blank" rel="noopener">Address: Cinnabar Hills, Embassy Golf Links Business Park, Challaghatta, Bengaluru, Karnataka 560071, India</a>
+      <a class="ct-map" href="https://www.google.com/maps/search/?api=1&query=Embassy+Golf+Links+Business+Park+Bengaluru" target="_blank" rel="noopener" aria-label="Open the SkillRadius office in Google Maps"><img src="assets/img/map.jpg" alt="Map of Embassy Golf Links Business Park, Bengaluru"></a>
+    </div>
+  </section>
+  <section class="ct-teams" aria-labelledby="ct-teams-h">
+    <h2 id="ct-teams-h">Talk to the right team</h2><p>Skip the queue and reach the people who can help with your question.</p>
+    <div class="ct-grid">
+      <a class="ct-card" href="mailto:support@skillradius.in"><span class="ic" data-fi="account_circle"></span><b>Learner support</b><span>Courses, payments, refunds, certificates and account help.</span><em>support@skillradius.in</em></a>
+      <a class="ct-card" href="business.html#contact-sales"><span class="ic" data-fi="business_center"></span><b>Corporate training</b><span>Team programs, bulk licences and campus partnerships.</span><em>business@skillradius.in</em></a>
+      <a class="ct-card" href="teach.html"><span class="ic" data-fi="live_tv"></span><b>Teach with us</b><span>Run a live batch or publish a course on SkillRadius.</span><em>trainers@skillradius.in</em></a>
+      <a class="ct-card" href="press.html"><span class="ic" data-fi="description"></span><b>Press &amp; media</b><span>Interviews, brand assets and company information.</span><em>press@skillradius.in</em></a>
+      <a class="ct-card" href="careers.html"><span class="ic" data-fi="work"></span><b>Careers</b><span>Open roles at SkillRadius in Bengaluru and remote.</span><em>See open roles →</em></a>
+      <a class="ct-card" href="grievance.html"><span class="ic" data-fi="security"></span><b>Grievance officer</b><span>Unresolved complaints, escalated within 24 hours.</span><em>grievance@skillradius.in</em></a>
+    </div>
+  </section>
+  <section class="ct-form">
+    <h2>Send us a message</h2>
+    <p>Questions about a course, a batch, a payment or a certificate? We reply within one working day.</p>
+    <form class="card stack" id="form" novalidate>
+      <div class="form-grid">
+        <div class="field"><label for="c-name">Name <span class="req">*</span></label><input id="c-name" autocomplete="name"></div>
+        <div class="field"><label for="c-email">Email <span class="req">*</span></label><input id="c-email" type="email" autocomplete="email"></div>
+        <div class="field"><label for="c-phone">Phone</label><input id="c-phone" type="tel" inputmode="numeric" autocomplete="tel"></div>
+        <div class="field"><label for="c-topic">Topic <span class="req">*</span></label><select id="c-topic"><option value="">Choose a topic</option><option>Course question</option><option>Live training / batches</option><option>Certification & exams</option><option>Payments & refunds</option><option>Corporate training</option><option>Something else</option></select></div>
+        <div class="field full"><label for="c-msg">Message <span class="req">*</span></label><textarea id="c-msg" placeholder="Tell us how we can help"></textarea><span class="hint" id="count">0 / 1000</span></div>
+      </div>
+      <button class="btn lg" type="submit" style="justify-self:start">Send message</button>
+    </form>
+  </section>
+  <section class="ct-faq">
+    <div class="wrap narrow"><h2>Before you write</h2><p>These answer most questions we get.</p><div class="acc faq" id="faq"></div></div>
+  </section>
+  <section class="s-cta">
+    <img class="arc" src="assets/img/deco/cta-arc.svg" alt="" aria-hidden="true">
+    <div class="wrap">
+      <h2>It’s time to invest in the <span class="hl">future version of you!</span></h2>
+      <p>Whether you're building new skills or refining existing ones, <span class="hl">SkillRadius</span> gives you the tools, structure, and support to move forward with confidence.</p>
+      <div class="cta-btns"><a class="btn" href="signup.html">Get Started</a><a class="btn ghost" href="courses.html">Explore Courses</a></div>
+    </div>
+  </section>
+</main>
+<footer id="site-footer"></footer>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/ui.js"></script>
+<script src="assets/js/fx.js"></script>
+<script>
+(function () {
+  const { $, $$, icon, esc } = SR;
+  $$("[data-i]").forEach(el => el.innerHTML = icon(el.dataset.i));
+  $$("[data-fi]").forEach(el => el.innerHTML = SR.ficon(el.dataset.fi));
+  $("#faq").innerHTML = SR.faqHTML(SR.faq, false);
+  const u = SR.auth.user(); if (u) { $("#c-name").value = u.firstName + " " + (u.lastName || ""); $("#c-email").value = u.email; }
+  $("#copy-email").addEventListener("click", () => (navigator.clipboard ? navigator.clipboard.writeText("support@skillradius.in") : Promise.reject()).then(() => SR.toast("Email address copied"), () => SR.toast("support@skillradius.in")));
+  $("#c-msg").addEventListener("input", e => { if (e.target.value.length > 1000) e.target.value = e.target.value.slice(0, 1000); $("#count").textContent = e.target.value.length + " / 1000"; });
+  $("#form").addEventListener("submit", e => {
+    e.preventDefault();
+    const checks = [["#c-name", v => v.trim().length > 1, "Enter your name."], ["#c-email", SR.validEmail, "Enter a valid email address."], ["#c-topic", v => !!v, "Choose a topic."], ["#c-msg", v => v.trim().length >= 10, "Write at least a sentence so we can help."]];
+    let first = null;
+    checks.forEach(([s, fn, m]) => { const ok = fn($(s).value); SR.fieldError($(s), ok ? "" : m); if (!ok && !first) first = $(s); });
+    if (first) { first.focus(); return; }
+    // → Replace with POST /api/contact
+    const ticket = SR.addLead("contact", { name: $("#c-name").value.trim(), email: $("#c-email").value.trim(), phone: $("#c-phone").value.trim(), topic: $("#c-topic").value, message: $("#c-msg").value.trim() }).id;
+    $("#form").innerHTML = `<div class="sent"><span class="tick">${icon("check")}</span><h2 style="font-size:22px">Message sent</h2><p class="muted">Thanks, ${esc($("#c-name").value.split(" ")[0])}. Your ticket number is <b>${ticket}</b>. We'll reply to ${esc($("#c-email").value)} within one working day.</p><a class="btn ghost" href="index.html">Back to home</a></div>`;
+  });
+})();
+</script>
+</body>
+</html>

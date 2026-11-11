@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>For Business · SkillRadius</title>
+<meta name="description" content="Upskill your teams with live, expert-led training and verifiable certifications.">
+<meta name="sr-page" content="business">
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta property="og:title" content="For Business · SkillRadius">
+<meta property="og:description" content="Upskill your teams with live, expert-led training and verifiable certifications.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<header id="site-header"></header>
+<main>
+  <section class="band section" style="background:linear-gradient(180deg,#e4e9ff,#f6f8ff 70%,#fff)">
+    <div class="wrap split">
+      <div>
+        <span class="eyebrow">SkillRadius for Business</span>
+        <h1 style="margin-top:10px">Upskill your teams with <span class="hl">live, expert-led</span> training</h1>
+        <p class="lead">Custom learning paths, trainer-led cohorts and verifiable certifications for your engineers, analysts and designers, with reports your L&amp;D team will actually use.</p>
+        <div class="btn-row"><a class="btn lg" href="#contact-sales" data-scroll>Talk to sales</a><a class="btn ghost lg" href="#plans" data-scroll>See plans</a></div>
+        <div class="check-row" id="checks"></div>
+      </div>
+      <div class="split-media"><img src="assets/img/full-stack.jpg" alt="A developer working through a React lesson"></div>
+    </div>
+  </section>
+
+  <section class="band" style="padding-block:8px 56px">
+    <div class="wrap stack" style="gap:28px">
+      <p class="center muted">Teams from these companies learn with SkillRadius</p>
+      <ul class="logo-row" id="logos"></ul>
+      <div class="stat-strip"><div><b>120+</b><span>Companies trained</span></div><div><b>15,000+</b><span>Employees upskilled</span></div><div><b>4.7★</b><span>Average program rating</span></div><div><b>92%</b><span>Completion rate</span></div></div>
+    </div>
+  </section>
+
+  <section class="band section alt">
+    <div class="wrap">
+      <div class="sec-head"><span class="eyebrow">Solutions</span><h2>Everything your team needs to grow</h2></div>
+      <div class="grid-3" id="solutions"></div>
+    </div>
+  </section>
+
+  <section class="band section">
+    <div class="wrap">
+      <div class="sec-head"><span class="eyebrow">How it works</span><h2>From skills gap to <span class="hl">measurable results</span></h2></div>
+      <div class="steps">
+        <div class="step"><span class="n">1</span><h3>Assess</h3><p>Skill assessments show where each team stands today.</p></div>
+        <div class="step"><span class="n">2</span><h3>Design</h3><p>We build a learning path around your stack, tools and goals.</p></div>
+        <div class="step"><span class="n">3</span><h3>Deliver</h3><p>Self-paced courses plus live cohorts, online or at your office.</p></div>
+        <div class="step"><span class="n">4</span><h3>Measure</h3><p>Progress, attendance and certification reports for every learner.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band section alt" id="plans">
+    <div class="wrap">
+      <div class="sec-head"><span class="eyebrow">Plans</span><h2>Simple per-learner pricing</h2><p>Billed annually. All prices exclude 18% GST.</p></div>
+      <div class="tiers" id="tiers"></div>
+    </div>
+  </section>
+
+  <section class="band section">
+    <div class="wrap split">
+      <div class="card" style="padding:30px;background:var(--night);color:#fff;border:0">
+        <span class="pill" style="background:rgba(255,255,255,.14);color:#fff">Sample case study</span>
+        <h2 style="font-size:26px;font-weight:600;margin:14px 0 10px">How a fintech team shipped React in 10 weeks</h2>
+        <p style="color:#c3c9e8">A 40-person engineering team moved from server-rendered pages to React. We ran a custom 10-week cohort with weekly code reviews on their own codebase.</p>
+        <div class="grid-3" style="margin-top:22px;gap:12px">
+          <div><b style="font-size:28px;display:block">38/40</b><span style="color:#9aa3cf;font-size:13.5px">engineers certified</span></div>
+          <div><b style="font-size:28px;display:block">-35%</b><span style="color:#9aa3cf;font-size:13.5px">front-end bug tickets</span></div>
+          <div><b style="font-size:28px;display:block">4.8★</b><span style="color:#9aa3cf;font-size:13.5px">trainer rating</span></div>
+        </div>
+      </div>
+      <div>
+        <span class="eyebrow">Reporting</span>
+        <h2 style="font-size:clamp(26px,3.4vw,34px);font-weight:600;margin:10px 0 14px">See progress for every team, in one place</h2>
+        <ul class="check-list" id="reports"></ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="band section alt" id="contact-sales">
+    <div class="wrap split" style="align-items:start">
+      <div>
+        <span class="eyebrow">Talk to sales</span>
+        <h2 style="font-size:clamp(26px,3.4vw,36px);font-weight:600;margin:10px 0 14px">Get a proposal for your team</h2>
+        <p class="muted">Tell us about your team and we'll send a tailored plan and quote within one working day.</p>
+        <ul class="contact-list" style="list-style:none;padding:0;margin:22px 0 0;display:grid;gap:12px" id="sales-contact"></ul>
+      </div>
+      <form class="card stack" data-lead="business" id="lead">
+        <div class="form-grid">
+          <div class="field"><label for="b-name">Full name <span class="req">*</span></label><input id="b-name" name="name" data-req autocomplete="name"></div>
+          <div class="field"><label for="b-email">Work email <span class="req">*</span></label><input id="b-email" name="email" type="email" data-req data-kind="email" autocomplete="email"></div>
+          <div class="field"><label for="b-phone">Phone <span class="req">*</span></label><input id="b-phone" name="phone" data-req data-kind="phone" inputmode="numeric" autocomplete="tel"></div>
+          <div class="field"><label for="b-company">Company <span class="req">*</span></label><input id="b-company" name="company" data-req autocomplete="organization"></div>
+          <div class="field"><label for="b-size">Team size <span class="req">*</span></label><select id="b-size" name="size" data-req><option value="">Choose</option><option>5–49</option><option>50–499</option><option>500+</option></select></div>
+          <div class="field"><label for="b-need">Main interest</label><select id="b-need" name="interest"><option>Development</option><option>Data & AI</option><option>Design</option><option>Leadership & productivity</option><option>Campus / university program</option></select></div>
+          <div class="field full"><label for="b-msg">What are you hoping to achieve?</label><textarea id="b-msg" name="message" placeholder="e.g. Move 30 engineers to React by Q2"></textarea></div>
+        </div>
+        <label class="checkbox"><input type="checkbox" name="consent" data-req><span>I agree to be contacted about SkillRadius for Business.</span></label>
+        <button class="btn lg" type="submit" style="justify-self:start">Request a proposal</button>
+      </form>
+    </div>
+  </section>
+
+  <section class="band section tight"><div class="wrap narrow"><div class="sec-head"><h2 style="font-size:28px">Business FAQ</h2></div><div class="acc faq" id="faq"></div></div></section>
+</main>
+<footer id="site-footer"></footer>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/ui.js"></script>
+<script src="assets/js/fx.js"></script>
+<script>
+(function () {
+  const { $, icon, esc } = SR;
+  $("#checks").innerHTML = ["Custom programs", "Live trainers", "Verified certifications"].map(t => `<span>${icon("checkc")}${t}</span>`).join("");
+  $("#logos").innerHTML = SR.partners.map(p => `<li>${esc(p)}</li>`).join("");
+  $("#solutions").innerHTML = [
+    ["trend", "Custom learning paths", "Courses, live cohorts and certifications sequenced around your stack and roles."],
+    ["training", "Live cohort training", "Trainer-led batches online or on-site, scheduled around your team's hours."],
+    ["target", "Skill assessments", "Benchmark every learner before and after, with role-based assessments."],
+    ["cert", "Team certifications", "Proctored, verifiable certifications that prove new skills."],
+    ["grid", "Admin dashboard & reports", "Seats, progress, attendance and scores, exportable for HR."],
+    ["book", "Campus & university programs", "Placement-ready programs for final-year students, with faculty training."]
+  ].map(([i, t, d]) => `<div class="feature"><span class="ic">${icon(i)}</span><h3>${t}</h3><p>${d}</p></div>`).join("");
+  $("#tiers").innerHTML = [
+    { n: "Team", p: "₹1,999", u: "/learner/month", d: "For teams of 5–49", f: ["Full course library", "Team progress dashboard", "1 live cohort per quarter", "Email support"], cta: "Start with Team" },
+    { n: "Business", p: "₹1,499", u: "/learner/month", d: "For 50–499 learners", f: ["Everything in Team", "Custom learning paths", "Unlimited live cohorts", "Certification vouchers", "Dedicated success manager"], cta: "Talk to sales", star: true },
+    { n: "Enterprise", p: "Custom", u: "", d: "For 500+ learners", f: ["Everything in Business", "On-site training", "SSO and LMS integration", "Custom assessments", "Quarterly business reviews"], cta: "Contact us" }
+  ].map(t => `<div class="tier ${t.star ? "featured" : ""}">${t.star ? `<span class="pill solid badge">Most popular</span>` : ""}<h3>${t.n}</h3><p class="muted small">${t.d}</p><div class="amt">${t.p} <small>${t.u}</small></div><ul class="check-list green">${t.f.map(x => `<li>${icon("check")}${x}</li>`).join("")}</ul><a class="btn ${t.star ? "" : "ghost"} block" href="#contact-sales" data-scroll>${t.cta}</a></div>`).join("");
+  $("#reports").innerHTML = ["Seat usage and course progress by team", "Live session attendance and assignment scores", "Certification results with verifiable IDs", "Monthly report emailed to managers", "Export to CSV for your HR systems"].map(t => `<li>${icon("checkc")}${t}</li>`).join("");
+  $("#sales-contact").innerHTML = `<li>${icon("mail")}business@skillradius.in</li><li>${icon("phone")}+91 98765 43210</li><li>${icon("pin")}Embassy Golf Links Business Park, Bengaluru</li>`;
+  $("#faq").innerHTML = SR.faqHTML([["Can we customise the curriculum?", "Yes. Business and Enterprise plans include learning paths built around your stack, tools and projects."], ["Do you train on-site?", "Yes, in Bengaluru, Mumbai, Pune, Hyderabad and Delhi NCR, and anywhere else on request."], ["How are seats assigned?", "Admins invite learners by email and can reassign seats at any time."], ["Do you provide GST invoices?", "Yes, with your company's GSTIN, raised annually or quarterly."]]);
+  SR.leadForm($("#lead"), { type: "business", title: "Thanks! Your proposal is on its way", message: "A learning consultant will email you within one working day." });
+  document.querySelectorAll("[data-scroll]").forEach(a => a.addEventListener("click", e => { e.preventDefault(); document.querySelector(a.getAttribute("href")).scrollIntoView({ behavior: "smooth" }); }));
+})();
+</script>
+</body>
+</html>

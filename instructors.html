@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Our Trainers · SkillRadius</title>
+<meta name="description" content="Meet the industry trainers who teach on SkillRadius.">
+<meta name="sr-page" content="instructors">
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta property="og:title" content="Our Trainers · SkillRadius">
+<meta property="og:description" content="Meet the industry trainers who teach on SkillRadius.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<header id="site-header"></header>
+<main>
+  <section class="page-hero band center"><div class="wrap inner"><span class="eyebrow">Our trainers</span><h1>Learn from people who <span class="hl">do the work</span></h1><p>Every SkillRadius trainer works in the industry they teach. Meet some of them.</p></div></section>
+  <section class="band section tight in-stats-sec"><div class="wrap"><div class="in-stats" id="stats"></div></div></section>
+  <section class="band section tight"><div class="wrap"><div class="in-bar"><h2>Meet the trainers</h2><div class="bl-cats" id="tf" role="toolbar" aria-label="Filter by subject"></div></div><div class="in-grid" id="grid"></div></div></section>
+  <section class="band section tight"><div class="wrap"><div class="sr-band">
+    <span class="sh a" aria-hidden="true"></span><span class="sh b" aria-hidden="true"></span><span class="sh c" aria-hidden="true"></span>
+    <div class="t"><span class="k">Teach with us</span><h2>Want to teach on SkillRadius?</h2><p>Run live batches or publish self-paced courses. We handle production, marketing and payments, so you can focus on teaching.</p><ul><li>Earn per batch and per sale</li><li>Studio and editing support</li><li>Learners across India</li></ul></div>
+    <div class="sr-band-cta"><a class="btn" href="teach.html">Apply to teach</a><a class="btn ghost" href="contact.html">Talk to our team</a></div>
+  </div></div></section>
+</main>
+<footer id="site-footer"></footer>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/ui.js"></script>
+<script src="assets/js/fx.js"></script>
+<script>
+(function(){
+  const { $, esc, icon } = SR;
+  const all = Object.entries(SR.instructors);
+  const count = (k) => SR.courses.filter(c => c.instructor === k && c.published !== false).length + SR.trainings.filter(t => t.trainer === k).length;
+  const total = all.reduce((n, [, p]) => n + (p.learners || 0), 0), avg = (all.reduce((n, [, p]) => n + (p.rating || 0), 0) / all.length).toFixed(1), yrs = all.reduce((n, [, p]) => n + (p.years || 0), 0);
+  $("#stats").innerHTML = [[`${(total / 1000).toFixed(0)}k+`, "Learners taught"], [`${avg}★`, "Average trainer rating"], [`${yrs}+`, "Years of combined industry experience"], [`${all.length}`, "Featured trainers"]].map(([b, t]) => `<div><b>${b}</b><span>${t}</span></div>`).join("");
+  const groups = { All: () => true, Development: p => /React|Node|Software|Python|System/.test(p.expertise.join()), "Data & AI": p => /Python|SQL|Power BI|AI/.test(p.expertise.join()), Design: p => /design|Figma|User/i.test(p.expertise.join()), Creative: p => /film|editing|video/i.test(p.expertise.join()) };
+  let g = "All";
+  const draw = () => {
+    $("#tf").innerHTML = Object.keys(groups).map(k => `<button type="button" class="bl-cat" aria-pressed="${k === g}" data-g="${k}">${k}<span>${all.filter(([, p]) => groups[k](p)).length}</span></button>`).join("");
+    $("#grid").innerHTML = all.filter(([, p]) => groups[g](p)).map(([k, p], i) => `
+    <article class="in-card" style="--c:${p.color};--i:${i}">
+      <div class="cov"><span class="r1"></span><span class="r2"></span><span class="av">${SR.initials(p.name)}</span>${p.rating >= 4.8 ? `<span class="top">${SR.ficon("verified")}Top rated</span>` : ""}</div>
+      <div class="b">
+        <h3><a href="instructor.html#${k}">${esc(p.name)}</a></h3>
+        <p class="role">${esc(p.role)}${p.city ? ` · ${esc(p.city)}` : ""}</p>
+        <div class="tags">${(p.expertise || []).slice(0, 3).map(x => `<span>${esc(x)}</span>`).join("")}</div>
+        <dl><div><dt>Rating</dt><dd>★ ${p.rating}</dd></div><div><dt>Learners</dt><dd>${(p.learners || 0).toLocaleString("en-IN")}</dd></div><div><dt>Experience</dt><dd>${p.years} yrs</dd></div></dl>
+        <div class="ft"><span>${count(k) ? `${count(k)} program${count(k) === 1 ? "" : "s"} on SkillRadius` : "Leads our exams &amp; curriculum"}</span><i>${icon("arrow")}</i></div>
+      </div>
+    </article>`).join("");
+  };
+  document.addEventListener("click", e => { const b = e.target.closest("[data-g]"); if (b) { g = b.dataset.g; draw(); } });
+  draw();
+})();
+</script>
+</body>
+</html>

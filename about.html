@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>About · SkillRadius</title>
+<meta name="description" content="SkillRadius connects learners with expert trainers, hands-on courses and industry-recognised certifications. Learn about our mission and team.">
+<meta name="sr-page" content="about">
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/css/styles.css">
+<style>
+  .mission { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; align-items: center; }
+  .mission h2 { font-size: clamp(26px, 3.4vw, 36px); font-weight: 600; margin: 10px 0 14px; }
+  .mission p + p { margin-top: 12px; }
+  .mission p { color: var(--ink-2); font-size: 17px; }
+  .mosaic { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .mosaic img { border-radius: 16px; aspect-ratio: 4/3; object-fit: cover; width: 100%; }
+  .mosaic img:first-child { grid-column: 1 / -1; aspect-ratio: 16/8; }
+  .value { display: grid; gap: 10px; }
+  .value .ic { width: 48px; height: 48px; border-radius: 14px; display: grid; place-items: center; background: var(--primary-soft); color: var(--primary); }
+  .value .ic svg { width: 24px; height: 24px; }
+  .value h3 { font-size: 19px; font-weight: 600; }
+  .value p { color: var(--ink-2); font-size: 15px; }
+  .person { text-align: center; display: grid; gap: 8px; justify-items: center; }
+  .person .avatar-i { width: 84px; height: 84px; font-size: 26px; }
+  .person b { font-size: 17px; }
+  .person { text-decoration: none; color: inherit; padding: 18px 10px; border-radius: 18px; transition: background .2s, transform .2s; }
+  .person:hover { background: #fff; transform: translateY(-3px); box-shadow: 0 18px 36px -26px rgba(60, 90, 199, .55); }
+  .person > span:not(.avatar-i) { font-size: 14px; color: var(--ink-2); }
+  .person em { font-style: normal; font-size: 13px; font-weight: 600; color: var(--primary); }
+  /* Company facts */
+  .facts { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: clamp(24px, 4vw, 56px); align-items: start; }
+  .facts h2 { font-size: clamp(24px, 2vw, 34px); font-weight: 600; color: var(--heading); line-height: 1.2; margin-top: 8px; }
+  .facts > div > p { color: var(--ink-2); margin-top: 12px; line-height: 1.6; max-width: 460px; }
+  .facts dl { margin: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border: 1px solid var(--primary-line); border-radius: 18px; overflow: hidden; background: #fff; }
+  .facts dl > div { padding: 18px 20px; border-bottom: 1px solid var(--primary-line); }
+  .facts dl > div:nth-child(odd) { border-right: 1px solid var(--primary-line); }
+  .facts dl > div:nth-last-child(-n+2) { border-bottom: 0; }
+  .facts dt { font-size: 12.5px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-3); }
+  .facts dd { margin: 6px 0 0; color: var(--heading); font-weight: 500; line-height: 1.45; }
+  .facts dd a { color: var(--primary); }
+  @media (max-width: 860px) { .facts { grid-template-columns: minmax(0, 1fr); } }
+  @media (max-width: 520px) { .facts dl { grid-template-columns: minmax(0, 1fr); } .facts dl > div:nth-child(odd) { border-right: 0; } .facts dl > div:nth-last-child(2) { border-bottom: 1px solid var(--primary-line); } }
+  .milestones { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
+  .milestones li { border-top: 3px solid var(--primary); padding-top: 14px; }
+  .milestones b { display: block; font-size: 22px; color: var(--brand); }
+  .milestones span { color: var(--ink-2); font-size: 14.5px; }
+  @media (max-width: 960px) { .mission { grid-template-columns: minmax(0, 1fr); } .milestones { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 640px) { .milestones { grid-template-columns: minmax(0, 1fr); } }
+</style>
+</head>
+<body>
+<header id="site-header"></header>
+<main>
+  <section class="page-hero band center"><div class="wrap inner"><span class="eyebrow">About SkillRadius</span><h1>Learning that leads to <span class="hl">real outcomes</span></h1><p>SkillRadius is designed to make modern learning simple, engaging, and results-driven. We combine expert-led content, interactive learning tools, and a supportive community to help learners achieve real outcomes.</p></div></section>
+
+  <section class="band section">
+    <div class="wrap mission">
+      <div>
+        <span class="eyebrow">Our mission</span>
+        <h2>Close the gap between what people learn and what work needs</h2>
+        <p>We started SkillRadius in Bengaluru because too many capable people were stuck between theory-heavy degrees and jobs that wanted proof of skill.</p>
+        <p>So every course is built around real projects, every live batch is taught by people who do the work every day, and every certification ends in a proctored exam that employers can verify.</p>
+        <div class="btn-row" style="justify-content:flex-start;margin-top:22px"><a class="btn" href="courses.html">Explore courses</a><a class="btn ghost" href="contact.html">Talk to us</a></div>
+      </div>
+      <div class="mosaic"><img src="assets/img/full-stack.jpg" alt="Code on a screen during a React lesson"><img src="assets/img/cert-uiux.jpg" alt=""><img src="assets/img/cert-data-ai.jpg" alt=""></div>
+    </div>
+  </section>
+
+  <section class="band" style="padding-bottom:72px"><div class="wrap stat-strip">
+    <div><b>50,000+</b><span>Certified professionals</span></div><div><b>25+</b><span>Industry certifications</span></div><div><b>120+</b><span>Trainers & mentors</span></div><div><b>ISO</b><span>Certified organisation</span></div>
+  </div></section>
+
+  <section class="band section alt">
+    <div class="wrap">
+      <div class="sec-head"><span class="eyebrow">What we believe</span><h2>How we design every program</h2></div>
+      <div class="grid-4" id="values"></div>
+    </div>
+  </section>
+
+  <section class="band section">
+    <div class="wrap">
+      <div class="sec-head"><span class="eyebrow">Our journey</span><h2>Milestones</h2></div>
+      <ol class="milestones">
+        <li><b>2022</b><span>First cohort of 40 learners in Bengaluru</span></li>
+        <li><b>2023</b><span>Self-paced courses and the learning dashboard launch</span></li>
+        <li><b>2024</b><span>Proctored professional certifications go live</span></li>
+        <li><b>2026</b><span>50,000+ professionals certified across India</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="band section alt">
+    <div class="wrap">
+      <div class="sec-head"><span class="eyebrow">People</span><h2>Meet some of our trainers</h2><p>Working professionals who teach what they do every day.</p></div>
+      <div class="grid-4" id="people"></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="facts">
+        <div><span class="eyebrow">At a glance</span><h2>SkillRadius in brief</h2><p>A Bengaluru-based learning company offering self-paced courses, trainer-led live batches and proctored professional certifications for learners and teams across India.</p>
+          <div class="btn-row" style="margin-top:22px;justify-content:flex-start"><a class="btn" href="contact.html">Contact us</a><a class="btn ghost" href="press.html">Press kit</a></div></div>
+        <dl>
+          <div><dt>Founded</dt><dd>2022, Bengaluru</dd></div>
+          <div><dt>Headquarters</dt><dd>Embassy Golf Links Business Park, Challaghatta, Bengaluru 560071</dd></div>
+          <div><dt>What we offer</dt><dd>Courses, live trainings, certifications and <a href="business.html">corporate programs</a></dd></div>
+          <div><dt>Learning modes</dt><dd>Online, live online and in person in Bengaluru</dd></div>
+          <div><dt>Standards</dt><dd>ISO 9001:2015 certified · MSME registered</dd></div>
+          <div><dt>Get in touch</dt><dd><a href="mailto:support@skillradius.in">support@skillradius.in</a><br>+91 98765 43210</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="band section cta-band">
+    <div class="wrap"><h2>It's time to invest in the<br><span class="hl">future version of you!</span></h2><div class="btn-row" style="width:min(420px,100%)"><a class="btn" href="signup.html">Get Started</a><a class="btn ghost" href="courses.html">Explore Courses</a></div></div>
+  </section>
+</main>
+<footer id="site-footer"></footer>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/ui.js"></script>
+<script src="assets/js/fx.js"></script>
+<script>
+  SR.$("#values").innerHTML = [
+    ["target", "Outcomes first", "We start from the job a learner wants to do and work backwards to the skills and projects that prove it."],
+    ["training", "Taught by practitioners", "Our trainers ship real products. They bring today's tools and today's problems into class."],
+    ["shield", "Verifiable credentials", "Every certificate has a unique ID, so employers can trust what it says in seconds."],
+    ["heart", "Support that shows up", "Mentors, community and a human support team, so nobody gets stuck alone."]
+  ].map(([i, t, d]) => `<div class="value"><span class="ic">${SR.icon(i)}</span><h3>${t}</h3><p>${d}</p></div>`).join("");
+  SR.$("#people").innerHTML = ["priya", "arjun", "neha", "kabir"].map(k => { const p = SR.instructors[k]; return `<a class="person" href="instructor.html#${k}"><span class="avatar-i" style="background:${p.color}">${SR.initials(p.name)}</span><b>${SR.esc(p.name)}</b><span>${SR.esc(p.role)}</span><em>View profile →</em></a>`; }).join("");
+</script>
+</body>
+</html>

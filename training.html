@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Training · SkillRadius</title>
+<meta name="description" content="Live batch schedule, syllabus, trainer, seats and fees on SkillRadius.">
+<meta name="sr-page" content="training">
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/css/styles.css">
+<style>
+  .timeline { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
+  .timeline li { display: grid; grid-template-columns: 110px 18px minmax(0,1fr); gap: 14px; padding-bottom: 20px; position: relative; }
+  .timeline li::before { content: ""; position: absolute; left: 132px; top: 18px; bottom: 0; width: 2px; background: var(--primary-line); }
+  .timeline li:last-child::before { display: none; }
+  .timeline .when { font-size: 13.5px; font-weight: 700; color: var(--training); padding-top: 1px; }
+  .timeline .dot { width: 14px; height: 14px; border-radius: 50%; background: #fff; border: 3px solid var(--training); margin-top: 3px; position: relative; z-index: 1; }
+  .timeline b { display: block; font-size: 16px; }
+  .timeline span { color: var(--ink-2); font-size: 14.5px; }
+  .sess { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+  .sess th { text-align: left; font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-3); padding: 8px 10px; border-bottom: 1px solid var(--line); }
+  .sess td { padding: 10px; border-bottom: 1px solid var(--line); }
+  .sess tr:last-child td { border-bottom: 0; }
+  .table-wrap { overflow-x: auto; }
+  /* Hero follows the Figma certification "Hero": white, black title, blue level line, tint stat bar */
+  .hero-tr { background: linear-gradient(180deg, #eef2ff 0%, #fff 100%); color: #202020; padding-block: 36px 40px; border-bottom: 1px solid var(--tint); }
+  .hero-tr .crumbs a, .hero-tr .crumbs { color: var(--ink-3); font-size: 12px; }
+  .hero-tr h1 { font-size: clamp(28px, 2.32vw, 40px); font-weight: 600; color: #000; line-height: 1.22; }
+  .hero-tr p.lead { color: var(--ink-2); font-size: 15px; margin-top: 10px; max-width: 70ch; }
+  .hero-tr .facts { color: var(--primary); font-weight: 500; }
+  .hero-tr .facts svg { color: var(--primary); }
+  @media (max-width: 640px) { .timeline li { grid-template-columns: 80px 14px minmax(0,1fr); gap: 10px; } .timeline li::before { left: 96px; } }
+</style>
+</head>
+<body>
+<header id="site-header"></header>
+<main id="main"></main>
+<footer id="site-footer"></footer>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/ui.js"></script>
+<script src="assets/js/fx.js"></script>
+<script src="assets/js/pages/training.js"></script>
+</body>
+</html>

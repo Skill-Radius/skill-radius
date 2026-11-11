@@ -1,0 +1,34 @@
+/* =====================================================================
+   SkillRadius — "future" styling, kept for two home sections only:
+   the Course Finder (#finder) and the dark dashboard band (.f-night).
+===================================================================== */
+:root {
+  --f-grad: linear-gradient(120deg, #4e6cff 0%, #3c5ac7 45%, #1a3ebe 100%);
+  --f-glow: 0 18px 40px -16px rgba(78, 108, 255, .65);
+  --f-navy: #070d2b;
+}
+
+/* Shared: glowing eyebrow chip + gradient button, only inside the two sections */
+#finder .eyebrow, .f-night .h-head .eyebrow { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px 6px 12px; border-radius: 99px; background: rgba(238, 242, 255, .8); border: 1px solid rgba(120, 147, 255, .35); font-size: clamp(12px, .8vw, 13.5px) !important; letter-spacing: .12em !important; text-transform: uppercase; line-height: 1.2 !important; box-shadow: 0 6px 20px -12px rgba(78, 108, 255, .7); }
+#finder .eyebrow::before, .f-night .h-head .eyebrow::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: #4e6cff; box-shadow: 0 0 0 3px rgba(78, 108, 255, .2), 0 0 10px #4e6cff; }
+#finder .btn:not(.ghost), .f-night .btn:not(.ghost) { background: var(--f-grad); border-color: transparent; position: relative; overflow: hidden; isolation: isolate; }
+#finder .btn:not(.ghost)::after, .f-night .btn:not(.ghost)::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, .45) 50%, transparent 70%); transform: translateX(-120%); transition: transform .7s ease; }
+#finder .btn:not(.ghost):hover::after, .f-night .btn:not(.ghost):hover::after { transform: translateX(120%); }
+#finder .btn:not(.ghost):hover, .f-night .btn:not(.ghost):hover { box-shadow: var(--f-glow); transform: translateY(-2px); }
+
+/* ---------- Course finder ---------- */
+#finder .pf { background: linear-gradient(135deg, rgba(248, 249, 255, .9), rgba(255, 255, 255, .95) 55%, rgba(243, 246, 255, .9)); box-shadow: 0 40px 80px -50px rgba(26, 62, 190, .45); }
+
+/* ---------- Dashboard showcase: dark "night" band ---------- */
+.f-night { position: relative; isolation: isolate; background: radial-gradient(1200px 600px at 80% 20%, rgba(78, 108, 255, .35), transparent 60%), radial-gradient(900px 500px at 10% 90%, rgba(167, 139, 250, .25), transparent 60%), var(--f-navy); color: #fff; padding-bottom: max(80px, calc(140 * var(--k))); margin-top: max(64px, calc(120 * var(--k))); overflow: hidden; border-radius: clamp(0px, 3vw, 40px); width: min(1560px, 100% - 2 * clamp(0px, 2vw, 32px)); margin-inline: auto; }
+.f-night::before { content: ""; position: absolute; inset: 0; z-index: -1; background-image: linear-gradient(rgba(255, 255, 255, .05) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .05) 1px, transparent 1px); background-size: 48px 48px; -webkit-mask-image: radial-gradient(ellipse 80% 70% at 60% 40%, #000 20%, transparent 80%); mask-image: radial-gradient(ellipse 80% 70% at 60% 40%, #000 20%, transparent 80%); }
+.f-night::after { content: ""; position: absolute; left: 50%; top: -1px; width: 60%; height: 1px; transform: translateX(-50%); background: linear-gradient(90deg, transparent, rgba(143, 166, 255, .9), transparent); }
+.f-night .h-head h2 { color: #fff; letter-spacing: -.015em; }
+.f-night .h-head h2 .hl { background: linear-gradient(100deg, #8fa6ff, #c4b5fd); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.f-night .h-head p, .f-night .sc-list span { color: rgba(226, 232, 255, .72); }
+.f-night .h-head .eyebrow { background: rgba(255, 255, 255, .06); border-color: rgba(143, 166, 255, .35); color: #c9d3ff; box-shadow: none; }
+.f-night .sc-list b { color: #fff; }
+.f-night .sc-list .ic { background: rgba(120, 147, 255, .16); color: #b9c7ff; border: 1px solid rgba(143, 166, 255, .3); }
+.f-night .showcase { perspective: 1400px; }
+.f-night .device { color: var(--ink); background: #fff; outline: 10px solid rgba(143, 166, 255, .22); box-shadow: 0 50px 120px -30px rgba(78, 108, 255, .7), 0 0 0 1px rgba(255, 255, 255, .5); transform-style: preserve-3d; transition: transform .5s cubic-bezier(.2,.7,.2,1); }
+.f-night .device::before { display: none; }

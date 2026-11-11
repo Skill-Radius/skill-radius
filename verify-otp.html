@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Verify Code · SkillRadius</title>
+<meta name="description" content="Enter the one-time code sent to your email to verify your SkillRadius account.">
+<meta name="robots" content="noindex">
+<meta name="sr-page" content="otp">
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<main class="auth">
+  <aside class="auth-art" aria-hidden="true"><img src="assets/img/art-auth-art.webp" alt=""></aside>
+  <section class="auth-panel">
+    <div class="auth-bar"><a class="back" href="login.html"><span data-i="arrowl"></span>Back to log in</a><a href="help.html">Need help?</a></div>
+    <div class="auth-card">
+      <div class="top">
+        <a class="brand" href="index.html" aria-label="SkillRadius home"><img src="assets/img/logo-mark.svg" alt="" width="52" height="52"><img src="assets/img/logo-word.svg" alt="SkillRadius" width="112" height="18" style="filter:none"></a>
+        <h1>Check your email</h1>
+        <p class="sub" id="otp-sub">We’ve sent a verification code to your email</p>
+      </div>
+      <form id="form" novalidate>
+        <div class="otp" id="otp" role="group" aria-label="6-digit code">
+          <input inputmode="numeric" maxlength="1" aria-label="Digit 1" autocomplete="one-time-code"><input inputmode="numeric" maxlength="1" aria-label="Digit 2"><input inputmode="numeric" maxlength="1" aria-label="Digit 3"><input inputmode="numeric" maxlength="1" aria-label="Digit 4"><input inputmode="numeric" maxlength="1" aria-label="Digit 5"><input inputmode="numeric" maxlength="1" aria-label="Digit 6">
+        </div>
+        <p class="alt" id="timer" aria-live="polite"></p>
+        <div id="form-error"></div>
+        <button class="btn lg block" type="submit">Continue</button>
+      </form>
+      <div class="demo-box"><span>Demo: the code is <code>482913</code></span><button class="btn sm soft" type="button" id="fill-code">Fill code</button></div>
+      <p class="alt"><a href="login.html">← Back to Log In</a></p>
+    </div>
+    <p class="auth-foot"><a href="terms.html">Terms</a><span>·</span><a href="privacy.html">Privacy</a><span>·</span><a href="cookie-policy.html">Cookies</a></p>
+  </section>
+</main>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/ui.js"></script>
+<script src="assets/js/fx.js"></script>
+<script src="assets/js/pages/auth.js"></script>
+</body>
+</html>

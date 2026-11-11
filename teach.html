@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Teach with SkillRadius · SkillRadius</title>
+<meta name="description" content="Teach live batches or courses on SkillRadius.">
+<meta name="sr-page" content="teach">
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta property="og:title" content="Teach with SkillRadius · SkillRadius">
+<meta property="og:description" content="Teach live batches or courses on SkillRadius.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<header id="site-header"></header>
+<main>
+  <section class="band section" style="background:linear-gradient(180deg,#e4e9ff,#f6f8ff 70%,#fff)">
+    <div class="wrap split">
+      <div><span class="eyebrow">Teach with us</span><h1 style="margin-top:10px">Share what you know. <span class="hl">Get paid for it.</span></h1>
+        <p class="lead">Run live batches, record self-paced courses or mentor learners. We handle production, marketing and payments. You focus on teaching.</p>
+        <div class="btn-row"><a class="btn lg" href="#apply" data-scroll>Apply to teach</a><a class="btn ghost lg" href="instructors.html">Meet our trainers</a></div></div>
+      <div class="split-media"><img src="assets/img/lesson-poster.jpg" alt="A trainer explaining a diagram on a whiteboard"></div>
+    </div>
+  </section>
+  <section class="band section tight"><div class="wrap grid-3" id="why"></div></section>
+  <section class="band section alt">
+    <div class="wrap"><div class="sec-head"><span class="eyebrow">Process</span><h2>From application to first batch</h2></div>
+      <div class="steps">
+        <div class="step"><span class="n">1</span><h3>Apply</h3><p>Tell us what you teach and share a sample.</p></div>
+        <div class="step"><span class="n">2</span><h3>Demo session</h3><p>A 20-minute teaching demo with our academics team.</p></div>
+        <div class="step"><span class="n">3</span><h3>Plan</h3><p>Co-design the syllabus, projects and schedule.</p></div>
+        <div class="step"><span class="n">4</span><h3>Teach</h3><p>Launch your batch or course. We fill the seats.</p></div>
+      </div>
+    </div>
+  </section>
+  <section class="band section" id="apply">
+    <div class="wrap split" style="align-items:start">
+      <div><span class="eyebrow">What we look for</span><h2 style="font-size:clamp(26px,3.4vw,34px);font-weight:600;margin:10px 0 14px">Practitioners who love explaining things</h2>
+        <ul class="check-list" id="look"></ul></div>
+      <form class="card stack" id="form" data-lead="trainer">
+        <h2 style="font-size:20px;font-weight:600">Trainer application</h2>
+        <div class="form-grid">
+          <div class="field"><label for="t-name">Full name <span class="req">*</span></label><input id="t-name" name="name" data-req autocomplete="name"></div>
+          <div class="field"><label for="t-email">Email <span class="req">*</span></label><input id="t-email" name="email" type="email" data-req data-kind="email"></div>
+          <div class="field"><label for="t-phone">Phone <span class="req">*</span></label><input id="t-phone" name="phone" data-req data-kind="phone" inputmode="numeric"></div>
+          <div class="field"><label for="t-link">LinkedIn <span class="req">*</span></label><input id="t-link" name="linkedin" data-req data-kind="url" placeholder="https://linkedin.com/in/…"></div>
+          <div class="field"><label for="t-area">Subject <span class="req">*</span></label><select id="t-area" name="subject" data-req><option value="">Choose</option><option>Development</option><option>Data & AI</option><option>Design</option><option>Creative</option><option>Business & marketing</option><option>Other</option></select></div>
+          <div class="field"><label for="t-years">Years of experience <span class="req">*</span></label><select id="t-years" name="years" data-req><option value="">Choose</option><option>3–5</option><option>6–10</option><option>10+</option></select></div>
+          <div class="field full"><label for="t-format">How would you like to teach?</label><select id="t-format" name="format"><option>Live online batches</option><option>In-person workshops</option><option>Self-paced course</option><option>Mentoring</option></select></div>
+          <div class="field full"><label for="t-idea">What would you teach? <span class="req">*</span></label><textarea id="t-idea" name="proposal" data-req placeholder="Topic, who it's for, and what learners will build"></textarea></div>
+          <div class="field full"><label for="t-sample">Sample video or talk</label><input id="t-sample" name="sample" data-kind="url" placeholder="https://"></div>
+        </div>
+        <button class="btn lg" type="submit" style="justify-self:start">Submit application</button>
+      </form>
+    </div>
+  </section>
+  <section class="band section tight alt"><div class="wrap narrow"><div class="sec-head"><h2 style="font-size:28px">Trainer FAQ</h2></div><div class="acc faq" id="faq"></div></div></section>
+</main>
+<footer id="site-footer"></footer>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/ui.js"></script>
+<script src="assets/js/fx.js"></script>
+<script>
+(function(){
+  const { $, icon } = SR;
+  $("#why").innerHTML = [["card", "Earn well", "Revenue share on courses and a fixed fee per live batch, paid monthly."], ["video", "Studio & production", "Recording support, editing and course design help at no cost."], ["users", "Ready audience", "50,000+ learners and a marketing team filling your batches."]].map(([i, t, d]) => `<div class="feature"><span class="ic">${icon(i)}</span><h3>${t}</h3><p>${d}</p></div>`).join("");
+  $("#look").innerHTML = ["3+ years working in the field you teach", "Clear, friendly communication in English", "Real projects and examples from your work", "Availability for at least one batch per quarter"].map(t => `<li>${icon("checkc")}${t}</li>`).join("");
+  $("#faq").innerHTML = SR.faqHTML([["Do I need teaching experience?", "No, but you'll do a short demo session so we can see how you explain things."], ["How much time does it take?", "A live batch is usually 3–5 hours a week including preparation."], ["Who owns the course content?", "You keep ownership. SkillRadius gets a licence to distribute it while you teach with us."]]);
+  SR.leadForm($("#form"), { type: "trainer", title: "Application received", message: "Our academics team will contact you within 5 working days to set up a demo." });
+  document.querySelectorAll("[data-scroll]").forEach(a => a.addEventListener("click", e => { e.preventDefault(); document.querySelector(a.getAttribute("href")).scrollIntoView({ behavior: "smooth" }); }));
+})();
+</script>
+</body>
+</html>
